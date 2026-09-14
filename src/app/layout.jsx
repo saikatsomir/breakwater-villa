@@ -3,9 +3,9 @@ import './globals.css';
 import SmoothScroll from './components/SmoothScroll';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { cn } from "@/lib/utils";
+import { cn } from '../lib/utils';
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const newsreader = Newsreader({
   subsets: ['latin'],
@@ -29,7 +29,12 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={cn(newsreader.variable, instrumentSans.variable, "font-sans", geist.variable)}
+      className={cn(
+        newsreader.variable,
+        instrumentSans.variable,
+        'font-sans',
+        geist.variable
+      )}
     >
       <body>
         <Navbar />

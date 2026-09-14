@@ -129,48 +129,208 @@ export default function BreakwaterExperience() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden   bg-midnight py-20 md:py-24 lg:py-28"
+      className="
+        relative
+        overflow-hidden
+        bg-midnight
+
+        py-16
+
+        sm:py-20
+
+        md:py-24
+
+        lg:py-28
+
+        xl:py-32
+
+        2xl:py-36
+      "
     >
       {/* =====================================================
           SUBTLE BACKGROUND
       ===================================================== */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight via-ocean/10 to-midnight" />
+      <div className="pointer-events-none absolute inset-0 relative">
+        <div
+          className="
+            absolute
+            inset-0
 
-        <div className="absolute left-1/2 top-0 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-seaglass/5 blur-[120px]" />
+            bg-linear-to-b
+            from-midnight
+            via-ocean/10
+            to-midnight
+          "
+        />
+
+        <div
+          className="
+            absolute
+            left-1/2
+            top-0
+
+            h-[320px]
+            w-[90vw]
+            -translate-x-1/2
+
+            rounded-full
+            bg-seaglass/5
+            blur-[80px]
+
+            sm:h-[380px]
+
+            md:h-[420px]
+            md:w-[600px]
+            md:blur-[100px]
+
+            lg:h-[460px]
+            lg:w-[650px]
+
+            xl:h-[500px]
+            xl:w-[700px]
+            xl:blur-[120px]
+          "
+        />
       </div>
 
       {/* =====================================================
           CONTENT
       ===================================================== */}
-      <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-8 lg:px-0">
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          w-full
+          max-w-360
+
+          px-3
+
+          sm:px-4
+
+          md:px-6
+
+          lg:px-8
+
+          xl:px-10
+
+          2xl:px-12
+        "
+      >
         {/* ===================================================
             HEADER
         =================================================== */}
         <div
           ref={headerRef}
-          className="mx-auto mb-12 max-w-2xl text-center md:mb-14"
-        >
-          {/* Eyebrow */}
-          <div className="mb-5 flex items-center justify-center gap-3">
-            <span className="h-px w-8 bg-champagne/60" />
+          className="
+            mx-auto
+            mb-12
+            max-w-3xl
+            text-center
+            sm:mb-13
 
-            <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-champagne">
+            md:mb-14
+
+            xl:mb-16
+          "
+        >
+          <div
+            className="border-b border-white pb-5 -top-13 absolute"
+            id="villa-experience"
+          ></div>
+          {/* =================================================
+              EYEBROW
+
+              Bordered pill, matching Highlights/Gallery,
+              with the champagne dot accent kept for tone.
+          ================================================= */}
+          <div
+            className="
+              mb-5
+              inline-flex
+              items-center
+              gap-2
+
+              rounded-full
+              border
+              border-white/15
+              bg-white/5
+              px-3
+              py-1.5
+
+              sm:mb-6
+              sm:px-3.5
+
+              md:px-4
+            "
+          >
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-champagne" />
+
+            <span
+              className="
+                text-[9px]
+                font-semibold
+                uppercase
+                tracking-[0.2em]
+                text-champagne
+
+                sm:text-[10px]
+
+                lg:text-[11px]
+              "
+            >
               The Breakwater Experience
             </span>
-
-            <span className="h-px w-8 bg-champagne/60" />
           </div>
 
           {/* Heading */}
-          <h2 className="font-display text-4xl leading-[1] tracking-tight text-white sm:text-5xl md:text-6xl">
+          <h2
+            className="
+              font-display
+              font-medium
+              leading-[1.05]
+              tracking-tight
+              text-white
+
+              text-[40px]
+
+              sm:text-5xl
+
+              md:text-6xl
+
+              lg:text-[56px]
+
+              xl:text-[64px]
+
+              2xl:text-[72px]
+            "
+          >
             Days that move
             <br />
             <span className="italic text-champagne">at your pace.</span>
           </h2>
 
           {/* Description */}
-          <p className="mx-auto mt-5 max-w-xl text-base leading-6 text-white/55 md:text-lg">
+          <p
+            className="
+              mx-auto
+              mt-5
+              w-full
+
+              max-w-xl
+              text-base
+              leading-6
+              text-white/55
+
+              sm:mt-6
+              sm:text-lg
+              sm:leading-7
+
+              sm:max-w-3xl
+              xl:text-xl
+              xl:leading-8
+            "
+          >
             From quiet mornings by the water to evenings shared under the
             Caribbean sky, every moment at Breakwater is designed to be
             remembered.
@@ -185,7 +345,14 @@ export default function BreakwaterExperience() {
             grid
             grid-cols-1
             gap-4
+
+            sm:gap-5
+
             md:grid-cols-3
+
+            xl:gap-6
+
+            2xl:gap-8
           "
         >
           {experiences.map((experience, index) => (
@@ -210,7 +377,22 @@ export default function BreakwaterExperience() {
               {/* =================================================
                   IMAGE
               ================================================= */}
-              <div className="relative h-[390px] overflow-hidden md:h-[420px]">
+              <div
+                className="
+                  relative
+                  overflow-hidden
+
+                  h-[390px]
+
+                  md:h-[420px]
+
+                  lg:h-[460px]
+
+                  xl:h-[500px]
+
+                  2xl:h-[540px]
+                "
+              >
                 <Image
                   src={experience.image}
                   alt={experience.title}
@@ -231,10 +413,12 @@ export default function BreakwaterExperience() {
                   className="
                     absolute
                     inset-0
-                    bg-gradient-to-t
+
+                    bg-linear-to-t
                     from-midnight
                     via-midnight/30
                     to-midnight/5
+
                     transition-all
                     duration-700
                     group-hover:from-midnight/90
@@ -247,8 +431,29 @@ export default function BreakwaterExperience() {
                 {/* =================================================
                     NUMBER
                 ================================================= */}
-                <div className="absolute left-5 top-5 md:left-6 md:top-6">
-                  <span className="font-display text-3xl text-white/40">
+                <div
+                  className="
+                    absolute
+                    left-5
+                    top-5
+
+                    md:left-6
+                    md:top-6
+
+                    xl:left-7
+                    xl:top-7
+                  "
+                >
+                  <span
+                    className="
+                      font-display
+                      text-white/40
+
+                      text-3xl
+
+                      xl:text-4xl
+                    "
+                  >
                     {experience.number}
                   </span>
                 </div>
@@ -262,8 +467,6 @@ export default function BreakwaterExperience() {
                     right-5
                     top-5
                     flex
-                    h-10
-                    w-10
                     items-center
                     justify-center
                     rounded-full
@@ -278,22 +481,66 @@ export default function BreakwaterExperience() {
                     group-hover:border-champagne
                     group-hover:bg-champagne
                     group-hover:text-midnight
+
+                    h-10
+                    w-10
+
                     md:right-6
                     md:top-6
+
+                    xl:right-7
+                    xl:top-7
+                    xl:h-11
+                    xl:w-11
                   "
                 >
-                  <GoArrowUpRight size={17} />
+                  <GoArrowUpRight size={17} className="xl:size-[19px]" />
                 </div>
 
                 {/* =================================================
                     CONTENT
                 ================================================= */}
-                <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
-                  <p className="mb-2 text-[9px] font-medium uppercase tracking-[0.22em] text-champagne">
+                <div
+                  className="
+                    absolute
+                    inset-x-0
+                    bottom-0
+
+                    p-5
+
+                    md:p-6
+
+                    xl:p-7
+                  "
+                >
+                  <p
+                    className="
+                      mb-2
+                      text-[9px]
+                      font-medium
+                      uppercase
+                      tracking-[0.22em]
+                      text-champagne
+
+                      xl:text-[10px]
+                    "
+                  >
                     Experience {experience.number}
                   </p>
 
-                  <h3 className="font-display text-2xl leading-none text-white md:text-[28px]">
+                  <h3
+                    className="
+                      font-display
+                      leading-none
+                      text-white
+
+                      text-2xl
+
+                      md:text-[28px]
+
+                      xl:text-[32px]
+                    "
+                  >
                     {experience.title}
                   </h3>
 
@@ -301,13 +548,21 @@ export default function BreakwaterExperience() {
                     className="
                       mt-3
                       max-w-sm
-                      text-xs
                       leading-5
                       text-white/60
+
+                      text-xs
+
                       transition-colors
                       duration-500
                       group-hover:text-white/75
+
                       md:text-sm
+
+                      xl:mt-4
+                      xl:max-w-md
+                      xl:text-base
+                      xl:leading-6
                     "
                   >
                     {experience.description}
@@ -320,11 +575,15 @@ export default function BreakwaterExperience() {
                       flex
                       items-center
                       gap-2
+
                       text-[10px]
                       font-medium
                       uppercase
                       tracking-[0.16em]
                       text-white/80
+
+                      xl:mt-6
+                      xl:text-[11px]
                     "
                   >
                     <span>Explore</span>

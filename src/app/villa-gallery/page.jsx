@@ -53,7 +53,9 @@ export default function VillaGalleryPage() {
   return (
     <main>
       <GalleryHero />
-      <ResidenceIntro />
+      <section id="scroll-indicator-gallery">
+        <ResidenceIntro />
+      </section>
       <GalleryMarquee />
       <FinalBookingCTA />
     </main>

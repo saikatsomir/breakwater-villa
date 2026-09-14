@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Button from '../ui/Button';
+import Button from '../ui/SiteButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -96,35 +96,56 @@ export default function FinalBookingCTA() {
       aria-labelledby="final-booking-cta-heading"
       className="
         bg-white
+
         px-3
         pb-20
         pt-3
+
         sm:px-4
         sm:pb-24
         sm:pt-4
+
         md:px-6
         md:pb-28
         md:pt-6
+
         lg:px-8
         lg:pb-32
         lg:pt-8
+
+        xl:px-10
+        xl:pb-36
+
+        2xl:px-12
+        2xl:pb-40
       "
     >
       {/* =====================================================
           CONTAINER
       ===================================================== */}
 
-      <div className="mx-auto max-w-360">
+      <div className="mx-auto w-full max-w-360">
         <div
           className="
             relative
             flex
-          h-140
             items-center
             justify-center
             overflow-hidden
             rounded-2xl
+
+            h-[500px]
+
+            sm:h-[600px]
             sm:rounded-3xl
+
+            md:h-[680px]
+
+            lg:h-[560px]
+
+            xl:h-[600px]
+
+            2xl:h-[680px]
           "
         >
           {/* =================================================
@@ -141,11 +162,47 @@ export default function FinalBookingCTA() {
 
           {/* =================================================
               OVERLAY
+
+              Rebuilt for actual legibility: a full bottom-to-top
+              dark fade guarantees coverage behind the text block,
+              a subtle top fade protects the eyebrow badge, and a
+              midnight-toned radial (replacing the old off-brand
+              green one) reinforces contrast right behind the
+              heading rather than only darkening the corners.
           ================================================= */}
 
-          <div className="absolute inset-0 bg-gradient-to-t from-midnight/75 via-midnight/30 to-transparent" />
+          <div
+            className="
+              absolute
+              inset-0
 
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(49,75,53,0.45),transparent_55%),radial-gradient(ellipse_at_bottom_right,rgba(49,75,53,0.35),transparent_55%)]" />
+              bg-linear-to-t
+              from-midnight/90
+              via-midnight/55
+              to-midnight/10
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-x-0
+              top-0
+              h-1/3
+
+              bg-linear-to-b
+              from-midnight/40
+              to-transparent
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-[radial-gradient(ellipse_at_center,rgba(11,42,58,0.55),transparent_60%)]
+            "
+          />
 
           {/* =================================================
               CENTER CONTENT
@@ -156,18 +213,20 @@ export default function FinalBookingCTA() {
               relative
               z-10
               flex
-              min-h-[560px]
+              h-full
               w-full
               items-center
               justify-center
+
               px-5
-              py-20
-              sm:min-h-[640px]
+              py-16
+
               sm:px-6
-              sm:py-24
-              md:min-h-[700px]
-              md:py-28
-              lg:min-h-[760px]
+              sm:py-20
+
+              md:py-24
+
+              lg:py-28
             "
           >
             <div
@@ -179,14 +238,50 @@ export default function FinalBookingCTA() {
                 flex-col
                 items-center
                 text-center
+
+                xl:max-w-4xl
               "
             >
               {/* Eyebrow */}
 
-              <div className="mb-6 flex items-center gap-3 sm:mb-7">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#B68A52] sm:h-3 sm:w-3" />
+              <div
+                className="
+                  mb-6
+                  inline-flex
+                  items-center
+                  gap-2
 
-                <span className="text-[8px] font-semibold uppercase tracking-[0.25em] text-white/75 sm:text-[9px] sm:tracking-[0.28em]">
+                  rounded-full
+                  border
+                  border-white/20
+                  bg-white/10
+                  px-3
+                  py-1.5
+
+                  backdrop-blur-md
+
+                  sm:mb-7
+                  sm:px-3.5
+
+                  md:px-4
+                "
+              >
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-champagne" />
+
+                <span
+                  className="
+                    text-[8px]
+                    font-semibold
+                    uppercase
+                    tracking-[0.25em]
+                    text-white/85
+
+                    sm:text-[9px]
+                    sm:tracking-[0.28em]
+
+                    lg:text-[10px]
+                  "
+                >
                   Reservations
                 </span>
               </div>
@@ -198,19 +293,27 @@ export default function FinalBookingCTA() {
                 className="
                   max-w-4xl
                   font-display
-                  text-[42px]
                   font-medium
-                  leading-[0.94]
+                  leading-[1.02]
                   tracking-tight
                   text-white
-                  sm:text-6xl
-                  md:text-7xl
+
+                  text-[42px]
+
+                  sm:text-[56px]
+
+                  md:text-[68px]
+
                   lg:text-[80px]
+
+                  xl:text-[88px]
+
+                  2xl:text-[96px]
                 "
               >
                 Your time in paradise
                 <br />
-                <span className="italic text-[#B68A52]">starts here.</span>
+                <span className="italic text-champagne">starts here.</span>
               </h2>
 
               {/* Subtitle */}
@@ -222,10 +325,18 @@ export default function FinalBookingCTA() {
                   text-base
                   leading-6
                   text-white/85
+
                   sm:mt-6
                   sm:leading-7
+
                   md:text-lg
                   md:leading-7
+
+                  lg:mt-7
+
+                  xl:max-w-xl
+                  xl:text-xl
+                  xl:leading-8
                 "
               >
                 Come experience the quiet luxury, privacy, and natural beauty of
@@ -234,11 +345,19 @@ export default function FinalBookingCTA() {
 
               {/* Button */}
 
-              <div className="mt-8 sm:mt-9">
+              <div
+                className="
+                  mt-8
+
+                  sm:mt-9
+
+                  lg:mt-10
+                "
+              >
                 <Button
                   href="/booking-my-stay"
                   className="
-                   border-sand!
+                    border-sand!
                     hover:border-midnight!
                   "
                 >

@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import { DateRange } from 'react-day-picker';
 import { FiArrowUpRight, FiCalendar, FiCheck } from 'react-icons/fi';
 
-import { Calendar } from '@/components/ui/calendar';
+import { Calendar } from '../components/ui/calendar';
 
 export default function AvailabilityCalendar() {
   const [range, setRange] = useState({

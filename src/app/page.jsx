@@ -17,13 +17,13 @@ export default function Home() {
       <Highlights />
 
       <VillaGalleryShowcase />
-      <section id="villa-experience">
-        <BreakwaterExperience />
-      </section>
+      {/* <section id="villa-experience"> */}
+      <BreakwaterExperience />
+      {/* </section> */}
 
-      <section id="pricing">
-        <Rates />
-      </section>
+      {/* <section id="pricing"> */}
+      <Rates />
+      {/* </section> */}
 
       <section id="faq">
         <FAQ />

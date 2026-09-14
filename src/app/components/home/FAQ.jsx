@@ -1,10 +1,8 @@
 'use client';
-
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { FiPlus } from 'react-icons/fi';
-import Button from '../ui/Button';
-
+import Button from '../ui/SiteButton';
 const faqs = [
   {
     number: '01',
@@ -37,308 +35,152 @@ const faqs = [
       'General amenities include air conditioning, Wi-Fi, housekeeping, a private pool, a gated community setting, an office, and a theatre room. The villa is approximately a two-minute walk from a private beach and a two-minute golf cart ride from the Private Beach Club. Guests can also enjoy easy access to Atlantis, including its thrilling slides and captivating aquariums.',
   },
 ];
-
 function FAQItem({ faq, isOpen, onToggle }) {
   return (
     <motion.div
       layout
-      className="
-        overflow-hidden
-        rounded-2xl
-        bg-white
-        shadow-[0_8px_30px_rgba(11,42,58,0.06)]
-        transition-shadow
-        duration-500
-        hover:shadow-[0_12px_36px_rgba(11,42,58,0.09)]
-      "
+      className=" group overflow-hidden rounded-xl bg-white shadow-[0_8px_30px_rgba(11,42,58,0.06)] transition-all duration-500 hover:-translate-y-0.5 hover:shadow-[0_14px_38px_rgba(11,42,58,0.10)] sm:rounded-2xl "
     >
+      {' '}
+      {/* ===================================================== QUESTION ===================================================== */}{' '}
       <button
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
         aria-controls={`faq-answer-${faq.number}`}
-        className="
-          group
-          flex
-          w-full
-          items-center
-          justify-between
-          gap-4
-          px-4
-          py-5
-          text-left
-          sm:gap-5
-          sm:px-6
-          sm:py-6
-          lg:px-7
-          lg:py-7
-        "
+        className=" flex w-full items-center justify-between gap-4 px-5 py-5 text-left sm:gap-5 sm:px-6 sm:py-6 md:px-7 md:py-7 lg:px-8 lg:py-8 xl:px-9 xl:py-9 "
       >
-        <div className="flex min-w-0 items-start gap-3 sm:gap-5">
-          <span
-            className="
-              mt-0.5
-              shrink-0
-              font-display
-              text-sm
-              italic
-              text-[#B68A52]
-              sm:text-base
-            "
-          >
-            {faq.number}
-          </span>
-
-          <span
-            className="
-              font-display
-              text-[17px]
-              font-medium
-              leading-[1.15]
-              text-midnight
-              transition-colors
-              duration-300
-              group-hover:text-ocean
-              sm:text-xl
-              lg:text-[22px]
-            "
-          >
-            {faq.question}
-          </span>
-        </div>
-
+        {' '}
+        <div className="flex min-w-0 items-start gap-3 sm:gap-5 md:gap-6">
+          {' '}
+          {/* Number */}{' '}
+          <span className=" mt-0.5 shrink-0 font-display text-sm italic leading-none text-champagne sm:text-base xl:text-lg ">
+            {' '}
+            {faq.number}{' '}
+          </span>{' '}
+          {/* Question */}{' '}
+          <span className=" min-w-0 font-display text-[18px] font-medium leading-[1.15] text-midnight transition-colors duration-300 group-hover:text-ocean sm:text-xl md:text-[21px] lg:text-[22px] xl:text-[24px] ">
+            {' '}
+            {faq.question}{' '}
+          </span>{' '}
+        </div>{' '}
+        {/* Plus */}{' '}
         <span
-          className={`
-            flex
-            h-9
-            w-9
-            shrink-0
-            items-center
-            justify-center
-            rounded-full
-            border
-            transition-all
-            duration-500
-            sm:h-10
-            sm:w-10
-            ${
-              isOpen
-                ? 'rotate-45 border-[#B68A52] bg-[#B68A52] text-white'
-                : 'border-slate/12 bg-ivory text-slate'
-            }
-          `}
+          className={` flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-all duration-500 sm:h-10 sm:w-10 md:h-11 md:w-11 ${
+            isOpen
+              ? 'rotate-45 border-champagne bg-champagne text-white'
+              : 'border-slate/12 bg-[#f4f3f0] text-slate'
+          } `}
         >
-          <FiPlus size={17} strokeWidth={1.5} />
-        </span>
-      </button>
-
+          {' '}
+          <FiPlus
+            size={17}
+            strokeWidth={1.5}
+            className="sm:h-[18px] sm:w-[18px]"
+          />{' '}
+        </span>{' '}
+      </button>{' '}
+      {/* ===================================================== ANSWER ===================================================== */}{' '}
       <AnimatePresence initial={false}>
+        {' '}
         {isOpen && (
           <motion.div
             id={`faq-answer-${faq.number}`}
-            initial={{
-              height: 0,
-              opacity: 0,
-            }}
-            animate={{
-              height: 'auto',
-              opacity: 1,
-            }}
-            exit={{
-              height: 0,
-              opacity: 0,
-            }}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
             transition={{
-              height: {
-                duration: 0.45,
-                ease: [0.22, 1, 0.36, 1],
-              },
-              opacity: {
-                duration: 0.25,
-              },
+              height: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+              opacity: { duration: 0.25 },
             }}
           >
-            <div className="px-4 pb-6 sm:px-6 sm:pb-7 lg:px-7 lg:pb-7">
-              <div className="border-t border-slate/8 pt-5">
-                <p className="max-w-2xl text-sm leading-7 text-slate-muted md:text-[15px] md:leading-7">
-                  {faq.answer}
-                </p>
-              </div>
-            </div>
+            {' '}
+            <div className=" px-5 pb-6 sm:px-6 sm:pb-7 md:px-7 md:pb-8 lg:px-8 lg:pb-8 xl:px-9 xl:pb-9 ">
+              {' '}
+              <div className=" border-t border-slate/10 pt-5 sm:pt-6 md:pt-7 xl:pt-8 ">
+                {' '}
+                <p className=" max-w-2xl text-sm leading-6 text-slate-muted sm:text-base sm:leading-7 md:text-lg md:leading-8 lg:max-w-3xl xl:text-[17px] xl:leading-8 ">
+                  {' '}
+                  {faq.answer}{' '}
+                </p>{' '}
+              </div>{' '}
+            </div>{' '}
           </motion.div>
-        )}
-      </AnimatePresence>
+        )}{' '}
+      </AnimatePresence>{' '}
     </motion.div>
   );
 }
-
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
-
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? -1 : index);
   };
-
   return (
     <section
       aria-labelledby="faq-heading"
-      className="
-        bg-white
-        py-20
-        sm:py-24
-        md:py-32
-        lg:py-40
-      "
+      className=" overflow-hidden bg-[#f4f3f0] py-20 sm:py-24 md:py-32 lg:py-40 xl:py-44 2xl:py-52 "
     >
-      <div
-        className="
-          mx-auto
-          max-w-360
-          px-4
-          sm:px-5
-          md:px-8
-          lg:px-0
-        "
-      >
-        <div
-          className="
-            grid
-            gap-12
-            lg:grid-cols-[0.72fr_1.28fr]
-            lg:items-start
-            lg:gap-20
-            xl:grid-cols-[0.7fr_1.3fr]
-            xl:gap-24
-          "
-        >
-          {/* =====================================================
-              LEFT SIDE
-          ===================================================== */}
-
+      {' '}
+      <div className=" mx-auto w-full max-w-360 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-0 ">
+        {' '}
+        {/* ===================================================== MAIN GRID ===================================================== */}{' '}
+        <div className=" grid items-start gap-10 sm:gap-12 md:gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 xl:grid-cols-[0.72fr_1.28fr] xl:gap-20 2xl:grid-cols-[0.7fr_1.3fr] 2xl:gap-24 ">
+          {' '}
+          {/* ===================================================== LEFT — HEADER ===================================================== */}{' '}
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-              amount: 0.25,
-            }}
-            transition={{
-              duration: 0.8,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="
-              mx-auto
-              w-full
-              max-w-xl
-              text-center
-              lg:sticky
-              lg:top-32
-              lg:mx-0
-              lg:text-left
-            "
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className=" w-full max-w-2xl self-start "
           >
-            {/* Eyebrow */}
-
-            <div className="mb-6 flex items-center justify-center gap-3 sm:mb-7 lg:justify-start">
-              <span className="h-2.5 w-2.5 rounded-full bg-midnight sm:h-3 sm:w-3" />
-
-              <span
-                className="
-                  text-[9px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.23em]
-                  text-slate-muted
-                  sm:text-[10px]
-                  sm:tracking-[0.25em]
-                "
-              >
-                FAQ
-              </span>
-            </div>
-
-            {/* Title */}
-
+            {' '}
+            {/* ================================================= EYEBROW ================================================= */}{' '}
+            <div className=" mb-5 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-mist px-3 py-1.5 sm:mb-7 sm:px-3.5 md:px-4 ">
+              {' '}
+              <span className=" h-1.5 w-1.5 shrink-0 rounded-full bg-[#B58A52] sm:h-2 sm:w-2 " />{' '}
+              <span className=" text-[9px] font-semibold uppercase tracking-[0.2em] text-slate-muted sm:text-[10px] lg:text-[11px] ">
+                {' '}
+                FAQ{' '}
+              </span>{' '}
+            </div>{' '}
+            {/* ================================================= TITLE ================================================= */}{' '}
             <h2
               id="faq-heading"
-              className="
-                max-w-lg
-                font-display
-                text-[42px]
-                font-medium
-                leading-[0.95]
-                tracking-tight
-                text-midnight
-                sm:text-5xl
-                md:text-6xl
-                lg:text-[64px]
-                xl:text-[70px]
-              "
+              className=" max-w-3xl font-display text-[40px] font-medium leading-[1.05] tracking-tight text-midnight sm:text-5xl md:text-6xl lg:text-[56px] xl:text-[64px] 2xl:text-[72px] "
             >
-              Everything
-              <br />
-              <span className="italic text-[#B68A52]">you need to know.</span>
-            </h2>
-
-            {/* Subtitle */}
-
-            <p
-              className="
-                mx-auto
-                mt-6
-                max-w-md
-                text-sm
-                leading-6.5
-                text-slate-muted
-                sm:mt-7
-                sm:text-base
-                sm:leading-7
-                md:text-lg
-                md:leading-8
-                lg:mx-0
-              "
-            >
+              {' '}
+              Everything <br />{' '}
+              <span className="italic text-[#B58A52]">
+                {' '}
+                you need to know.{' '}
+              </span>{' '}
+            </h2>{' '}
+            {/* ================================================= SUBTITLE ================================================= */}{' '}
+            <p className=" mt-6 max-w-lg text-sm leading-6 text-slate-muted sm:mt-7 sm:text-base sm:leading-7 md:text-lg md:leading-8 xl:max-w-md xl:text-xl xl:leading-8.5 ">
+              {' '}
               Discover everything you need to know before your stay at
-              Breakwater Villa.
-            </p>
-
-            {/* Button */}
-
-            <div className="mt-8 flex justify-center lg:mt-9 lg:justify-start">
-              <Button href="/contact">Book Your Stay</Button>
-            </div>
-          </motion.div>
-
-          {/* =====================================================
-              RIGHT SIDE — FAQ
-          ===================================================== */}
-
+              Breakwater Villa.{' '}
+            </p>{' '}
+            {/* ================================================= BUTTON ================================================= */}{' '}
+            <div className=" mt-6 sm:mt-8 xl:mt-9 ">
+              {' '}
+              <Button href="/booking-my-stay" className="w-full sm:w-auto">
+                {' '}
+                Book Your Stay{' '}
+              </Button>{' '}
+            </div>{' '}
+          </motion.div>{' '}
+          {/* ===================================================== RIGHT — FAQ LIST ===================================================== */}{' '}
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 35,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-              amount: 0.1,
-            }}
-            transition={{
-              duration: 0.9,
-              delay: 0.1,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="space-y-3 sm:space-y-4"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className=" space-y-3 sm:space-y-4 md:space-y-5 "
           >
+            {' '}
             {faqs.map((faq, index) => (
               <FAQItem
                 key={faq.number}
@@ -346,10 +188,10 @@ export default function FAQ() {
                 isOpen={openIndex === index}
                 onToggle={() => handleToggle(index)}
               />
-            ))}
-          </motion.div>
-        </div>
-      </div>
+            ))}{' '}
+          </motion.div>{' '}
+        </div>{' '}
+      </div>{' '}
     </section>
   );
 }

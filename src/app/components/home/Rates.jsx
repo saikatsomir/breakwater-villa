@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Button from '../ui/Button';
+import Button from '../ui/SiteButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -96,20 +96,37 @@ export default function Rates() {
       className="
         overflow-hidden
         bg-[#f4f3f0]
+
         py-20
+
         sm:py-24
+
         md:py-32
+
         lg:py-40
+
+        xl:py-44
+
+        2xl:py-52
       "
     >
       <div
         className="
           mx-auto
+          w-full
           max-w-360
-          px-4
-          sm:px-5
-          md:px-8
-          lg:px-0
+
+          px-3
+
+          sm:px-4
+
+          md:px-6
+
+          lg:px-8
+
+          xl:px-10
+
+          2xl:px-0
         "
       >
         {/* =====================================================
@@ -121,7 +138,9 @@ export default function Rates() {
           className="
             grid
             gap-8
+
             sm:gap-10
+
             lg:grid-cols-[1fr_0.8fr]
             lg:items-end
             lg:gap-20
@@ -132,20 +151,48 @@ export default function Rates() {
           ================================================= */}
 
           <div>
-            {/* Eyebrow */}
+            {/* =============================================
+                EYEBROW
 
-            <div className="mb-5 flex items-center gap-3 sm:mb-7">
-              <span className="h-2.5 w-2.5 rounded-full bg-midnight sm:h-3 sm:w-3" />
+                Fixed: previous scale jumped from 9px
+                straight to 14px (sm:text-sm) with nothing
+                in between. Now steps gradually like every
+                other eyebrow on the site.
+            ============================================= */}
+
+            <div
+              className="
+                mb-5
+                inline-flex
+                items-center
+                gap-2
+
+                rounded-full
+                border
+                border-slate-200
+                bg-mist
+                px-3
+                py-1.5
+
+                sm:mb-7
+                sm:px-3.5
+
+                md:px-4
+              "
+            >
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#B58A52]" />
 
               <span
                 className="
                   text-[9px]
                   font-semibold
                   uppercase
-                  tracking-[0.22em]
+                  tracking-[0.2em]
                   text-slate-muted
-                  sm:text-sm
-                  sm:tracking-[0.25em]
+
+                  sm:text-[10px]
+
+                  lg:text-[11px]
                 "
               >
                 Rates
@@ -159,19 +206,27 @@ export default function Rates() {
               className="
                 max-w-3xl
                 font-display
-                text-[42px]
                 font-medium
-                leading-[0.95]
+                leading-[1.05]
                 tracking-tight
                 text-midnight
+
+                text-[40px]
+
                 sm:text-5xl
+
                 md:text-6xl
-                lg:text-[72px]
+
+                lg:text-[56px]
+
+                xl:text-[64px]
+
+                2xl:text-[72px]
               "
             >
               Your stay,
               <br />
-              <span className="italic text-[#B68A52]">your season.</span>
+              <span className="italic text-[#B58A52]">your season.</span>
             </h2>
           </div>
 
@@ -182,6 +237,7 @@ export default function Rates() {
           <div
             className="
               max-w-lg
+
               lg:justify-self-end
             "
           >
@@ -191,18 +247,36 @@ export default function Rates() {
                 text-sm
                 leading-6
                 text-slate-muted
+
                 sm:text-base
                 sm:leading-7
+
                 md:text-lg
                 md:leading-8
+
                 lg:text-right
+
+                xl:max-w-md
+                xl:text-xl
+                xl:leading-8.5
               "
             >
               Explore our seasonal nightly rates and find the perfect time for
               your stay at Breakwater Villa.
             </p>
 
-            <div className="mt-6 sm:mt-8 lg:flex lg:justify-end">
+            <div
+              className="
+                mt-6
+
+                sm:mt-8
+
+                lg:flex
+                lg:justify-end
+
+                xl:mt-9
+              "
+            >
               <Button href="/booking-my-stay" className="sm:w-auto">
                 Book Your Stay
               </Button>
@@ -220,13 +294,21 @@ export default function Rates() {
             mt-10
             grid
             gap-3
+
             sm:mt-12
             sm:gap-4
+
             md:mt-16
             md:grid-cols-2
             md:gap-5
+
             lg:mt-20
             lg:grid-cols-4
+
+            xl:mt-24
+            xl:gap-6
+
+            2xl:gap-7
           "
         >
           {/* =================================================
@@ -237,15 +319,23 @@ export default function Rates() {
             className="
               group
               relative
-              h-[300px]
               overflow-hidden
               rounded-xl
               bg-midnight
               opacity-0
+
+              h-[300px]
+
               sm:h-[330px]
               sm:rounded-2xl
+
               md:h-[360px]
+
               lg:h-120
+
+              xl:h-130
+
+              2xl:h-140
             "
           >
             <Image
@@ -269,7 +359,17 @@ export default function Rates() {
 
             {/* Image Overlay */}
 
-            <div className="absolute inset-0 bg-gradient-to-t from-midnight/65 via-midnight/10 to-transparent" />
+            <div
+              className="
+                absolute
+                inset-0
+
+                bg-linear-to-t
+                from-midnight/65
+                via-midnight/10
+                to-transparent
+              "
+            />
 
             {/* Image Content */}
 
@@ -279,9 +379,11 @@ export default function Rates() {
                 bottom-5
                 left-5
                 right-5
+
                 sm:bottom-7
                 sm:left-7
                 sm:right-7
+
                 lg:bottom-8
                 lg:left-8
                 lg:right-8
@@ -293,7 +395,8 @@ export default function Rates() {
                   font-semibold
                   uppercase
                   tracking-[0.22em]
-                  text-[#B68A52]
+                  text-champagne
+
                   sm:text-[9px]
                   sm:tracking-[0.24em]
                 "
@@ -305,12 +408,17 @@ export default function Rates() {
                 className="
                   mt-1.5
                   font-display
-                  text-2xl
                   leading-none
                   text-white
+
+                  text-2xl
+
                   sm:mt-2
                   sm:text-3xl
+
                   lg:text-4xl
+
+                  xl:text-[42px]
                 "
               >
                 Paradise Island
@@ -328,7 +436,6 @@ export default function Rates() {
               className="
                 group
                 flex
-                h-[250px]
                 flex-col
                 justify-between
                 rounded-xl
@@ -340,13 +447,22 @@ export default function Rates() {
                 duration-500
                 hover:-translate-y-1
                 hover:shadow-[0_14px_38px_rgba(11,42,58,0.10)]
+
+                h-[250px]
+
                 sm:h-[280px]
                 sm:rounded-2xl
                 sm:p-6
+
                 md:h-[300px]
                 md:p-7
+
                 lg:h-120
                 lg:p-8
+
+                xl:h-130
+
+                2xl:h-140
               "
             >
               {/* =================================================
@@ -358,10 +474,14 @@ export default function Rates() {
                   <span
                     className="
                       font-display
-                      text-sm
                       italic
-                      text-[#B68A52]
+                      text-champagne
+
+                      text-sm
+
                       sm:text-base
+
+                      xl:text-lg
                     "
                   >
                     0{index + 1}
@@ -369,20 +489,34 @@ export default function Rates() {
 
                   <span
                     className="
-                      h-1.5
-                      w-1.5
                       rounded-full
-                      bg-[#B68A52]/60
+                      bg-champagne/60
                       transition-colors
                       duration-300
-                      group-hover:bg-[#B68A52]
+                      group-hover:bg-champagne
+
+                      h-1.5
+                      w-1.5
+
                       sm:h-2
                       sm:w-2
                     "
                   />
                 </div>
 
-                <div className="mt-7 sm:mt-9 md:mt-10 lg:mt-12">
+                <div
+                  className="
+                    mt-7
+
+                    sm:mt-9
+
+                    md:mt-10
+
+                    lg:mt-12
+
+                    xl:mt-14
+                  "
+                >
                   <p
                     className="
                       text-[8px]
@@ -390,6 +524,7 @@ export default function Rates() {
                       uppercase
                       tracking-[0.18em]
                       text-slate-muted
+
                       sm:text-[9px]
                       sm:tracking-[0.2em]
                     "
@@ -401,13 +536,18 @@ export default function Rates() {
                     className="
                       mt-2
                       font-display
-                      text-2xl
                       font-medium
                       leading-none
                       text-midnight
+
+                      text-2xl
+
                       sm:mt-3
                       sm:text-3xl
+
                       lg:text-4xl
+
+                      xl:text-[40px]
                     "
                   >
                     {rate.season}
@@ -424,9 +564,14 @@ export default function Rates() {
                   className="
                     border-t
                     border-slate/10
+
                     pt-4
+
                     sm:pt-5
+
                     lg:pt-6
+
+                    xl:pt-7
                   "
                 >
                   <p
@@ -437,26 +582,44 @@ export default function Rates() {
                       leading-4
                       tracking-[0.11em]
                       text-slate-muted
+
                       sm:text-[9px]
                       sm:leading-5
                       sm:tracking-[0.13em]
+
+                      xl:text-[10px]
                     "
                   >
                     {rate.period}
                   </p>
                 </div>
 
-                <div className="mt-5 sm:mt-6 lg:mt-8">
+                <div
+                  className="
+                    mt-5
+
+                    sm:mt-6
+
+                    lg:mt-8
+
+                    xl:mt-9
+                  "
+                >
                   <p
                     className="
                       font-display
-                      text-3xl
                       font-medium
                       leading-none
                       tracking-tight
                       text-midnight
+
+                      text-3xl
+
                       sm:text-4xl
+
                       lg:text-5xl
+
+                      xl:text-[56px]
                     "
                   >
                     {rate.price}
@@ -470,9 +633,12 @@ export default function Rates() {
                       uppercase
                       tracking-[0.16em]
                       text-slate-muted
+
                       sm:mt-2
                       sm:text-[9px]
                       sm:tracking-[0.18em]
+
+                      xl:text-[10px]
                     "
                   >
                     Per Night · USD

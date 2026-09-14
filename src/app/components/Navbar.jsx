@@ -7,12 +7,13 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { FiPhone } from 'react-icons/fi';
 import { HiMiniBars3BottomRight, HiMiniXMark } from 'react-icons/hi2';
-import Button from './ui/Button';
+
+import Button from './ui/SiteButton';
 
 const navLinks = [
   { href: '/#villa-experience', label: 'The Villa' },
   { href: '/villa-gallery', label: 'Gallery' },
-  { href: '/#pricing', label: 'Pricing' },
+  // { href: '/#pricing', label: 'Pricing' },
   { href: '/contact', label: 'Contact' },
   { href: '/#faq', label: 'FAQ' },
 ];
@@ -47,10 +48,6 @@ export default function Navbar() {
 
   /*
    * Smooth scroll helper.
-   *
-   * We use the browser's requestAnimationFrame instead of relying
-   * on Lenis being available at the exact moment the user clicks.
-   * This makes the navigation work consistently every time.
    */
   const smoothScrollTo = (element) => {
     if (!element) return;
@@ -58,6 +55,7 @@ export default function Navbar() {
     const navbarOffset = 120;
 
     const startPosition = window.scrollY;
+
     const targetPosition =
       element.getBoundingClientRect().top + window.scrollY - navbarOffset;
 
@@ -114,10 +112,6 @@ export default function Navbar() {
       if (target) {
         smoothScrollTo(target);
 
-        /*
-         * Update the URL without letting the browser
-         * perform its native instant jump.
-         */
         window.history.pushState(null, '', `/#${hash}`);
 
         setActiveHash(`#${hash}`);
@@ -128,17 +122,16 @@ export default function Navbar() {
     }
 
     /*
-     * If we're on another page, navigate to the homepage.
-     * The hash will be handled after the homepage loads.
+     * If we're on another page, navigate to homepage.
+     * The hash will be handled after homepage loads.
      */
     router.push(href);
     setOpen(false);
   };
 
   /*
-   * When arriving at the homepage with a hash,
-   * wait until the page has rendered and then smoothly
-   * scroll to the requested section.
+   * When arriving at homepage with a hash,
+   * wait until the page has rendered and then scroll.
    */
   useEffect(() => {
     if (pathname !== '/') return;
@@ -154,10 +147,6 @@ export default function Navbar() {
       const target = document.getElementById(hash);
 
       if (target) {
-        /*
-         * Small delay ensures images/layout have had a chance
-         * to settle before calculating the target position.
-         */
         setTimeout(() => {
           smoothScrollTo(target);
         }, 100);
@@ -165,9 +154,6 @@ export default function Navbar() {
         return;
       }
 
-      /*
-       * If the section hasn't mounted yet, try again.
-       */
       attempts += 1;
 
       if (attempts < 60) {
@@ -183,16 +169,45 @@ export default function Navbar() {
   }, [pathname]);
 
   return (
-    <header className="fixed inset-x-0 top-4 z-50 px-3 md:top-8 md:px-6">
+    <header
+      className="
+        fixed
+        inset-x-0
+        top-3
+        z-50
+        px-3
+
+        sm:top-4
+        sm:px-4
+
+        md:top-5
+        md:px-6
+
+        lg:top-7
+        lg:px-8
+
+        xl:top-8
+        xl:px-10
+
+        2xl:px-12
+      "
+    >
       <nav
         className="
           mx-auto
-          max-w-[1440px]
+          w-full
+          max-w-360
+
+          overflow-hidden
           rounded-lg
+
           border
           border-slate-100
+
           bg-white
+
           shadow-sm
+
           md:rounded-xl
         "
       >
@@ -200,7 +215,26 @@ export default function Navbar() {
             MAIN NAVBAR
         ===================================================== */}
 
-        <div className="flex h-18 items-center justify-between px-4 md:h-24 md:px-8">
+        <div
+          className="
+            flex
+            items-center
+            justify-between
+
+            px-4
+            py-3
+
+            sm:px-5
+
+            md:px-6
+            md:py-3.5
+
+            lg:px-7
+
+            xl:px-8
+            xl:py-4
+          "
+        >
           {/* ===================================================
               LOGO
           =================================================== */}
@@ -216,17 +250,30 @@ export default function Navbar() {
               width={140}
               height={40}
               priority
-              className="h-7 w-auto md:h-13"
+              className="
+                h-7
+                w-auto
+
+                sm:h-8
+
+                md:h-10
+
+                lg:h-11
+
+                xl:h-12
+              "
             />
           </Link>
 
           {/* ===================================================
               DESKTOP NAVIGATION
+              ONLY VISIBLE FROM XL
           =================================================== */}
 
-          <ul className="hidden items-center gap-8 lg:flex">
+          <ul className="hidden items-center gap-8 xl:flex 2xl:gap-10">
             {navLinks.map((link) => {
               const isHashLink = link.href.includes('#');
+
               const hash = isHashLink ? `#${link.href.split('#')[1]}` : '';
 
               const active = isHashLink
@@ -244,6 +291,9 @@ export default function Navbar() {
                       tracking-wide
                       transition-colors
                       duration-300
+
+                      2xl:text-lg
+
                       ${
                         active
                           ? 'font-medium text-ocean'
@@ -279,17 +329,19 @@ export default function Navbar() {
 
           {/* ===================================================
               DESKTOP CTA
+              ONLY VISIBLE FROM XL
           =================================================== */}
 
-          <div className="hidden lg:block">
+          <div className="hidden xl:block">
             <Button href="/booking-my-stay">Book Your Stay</Button>
           </div>
 
           {/* ===================================================
-              MOBILE ACTIONS
+              MOBILE + TABLET ACTIONS
+              VISIBLE BELOW XL
           =================================================== */}
 
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-2 xl:hidden">
             {/* CALL BUTTON */}
 
             <a
@@ -301,7 +353,6 @@ export default function Navbar() {
                 w-10
                 items-center
                 justify-center
-                gap-2
                 rounded-full
                 bg-midnight
                 text-xs
@@ -312,14 +363,19 @@ export default function Navbar() {
                 duration-300
                 hover:bg-ocean
                 active:scale-95
+
+                sm:h-11
+                sm:w-11
+
+                md:h-12
+                md:w-12
               "
             >
-              <FiPhone size={14} />
+              <FiPhone size={14} className="md:hidden" />
+              <FiPhone size={16} className="hidden md:block" />
             </a>
 
-            {/* =================================================
-                MENU BUTTON
-            ================================================= */}
+            {/* MENU BUTTON */}
 
             <button
               type="button"
@@ -338,6 +394,12 @@ export default function Navbar() {
                 duration-300
                 hover:bg-mist/40
                 active:scale-95
+
+                sm:h-11
+                sm:w-11
+
+                md:h-12
+                md:w-12
               "
             >
               <AnimatePresence mode="wait" initial={false}>
@@ -363,9 +425,14 @@ export default function Navbar() {
                       duration: 0.2,
                       ease: 'easeOut',
                     }}
-                    className="flex items-center justify-center"
+                    className="
+                      flex
+                      items-center
+                      justify-center
+                    "
                   >
-                    <HiMiniXMark size={32} />
+                    <HiMiniXMark size={28} className="md:hidden" />
+                    <HiMiniXMark size={32} className="hidden md:block" />
                   </motion.span>
                 ) : (
                   <motion.span
@@ -389,9 +456,17 @@ export default function Navbar() {
                       duration: 0.2,
                       ease: 'easeOut',
                     }}
-                    className="flex items-center justify-center"
+                    className="
+                      flex
+                      items-center
+                      justify-center
+                    "
                   >
-                    <HiMiniBars3BottomRight size={32} />
+                    <HiMiniBars3BottomRight size={28} className="md:hidden" />
+                    <HiMiniBars3BottomRight
+                      size={32}
+                      className="hidden md:block"
+                    />
                   </motion.span>
                 )}
               </AnimatePresence>
@@ -400,7 +475,8 @@ export default function Navbar() {
         </div>
 
         {/* =====================================================
-            MOBILE NAVIGATION
+            MOBILE + TABLET NAVIGATION
+            VISIBLE BELOW XL
         ===================================================== */}
 
         <AnimatePresence initial={false}>
@@ -422,7 +498,7 @@ export default function Navbar() {
                 duration: 0.35,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="overflow-hidden lg:hidden"
+              className="overflow-hidden xl:hidden"
             >
               <motion.div
                 initial={{
@@ -450,9 +526,23 @@ export default function Navbar() {
                   border
                   border-slate-100
                   bg-ivory
+
+                  sm:mx-3
+                  sm:mb-3
+
+                  md:mx-4
+                  md:mb-4
                 "
               >
-                <ul className="space-y-1 p-3">
+                <ul
+                  className="
+                    space-y-1
+                    p-3
+
+                    md:space-y-2
+                    md:p-4
+                  "
+                >
                   {navLinks.map((link, index) => {
                     const isHashLink = link.href.includes('#');
 
@@ -493,6 +583,11 @@ export default function Navbar() {
                             text-sm
                             transition-colors
                             duration-300
+
+                            md:px-5
+                            md:py-4
+                            md:text-base
+
                             ${
                               active
                                 ? 'bg-mist/60 font-medium text-ocean'
@@ -510,7 +605,7 @@ export default function Navbar() {
                     );
                   })}
 
-                  {/* MOBILE CTA */}
+                  {/* MOBILE + TABLET CTA */}
 
                   <motion.li
                     initial={{

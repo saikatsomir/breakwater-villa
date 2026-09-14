@@ -4,7 +4,12 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GoArrowLeft, GoArrowRight, GoArrowUpRight } from 'react-icons/go';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const galleryItems = [
   {
@@ -56,13 +61,13 @@ const galleryItems = [
     description: 'Quiet, comfortable spaces for peaceful island nights.',
     image: '/images/home/guest-bedroom.jpg',
   },
-  {
-    number: '08',
-    title: 'Private Beach',
-    category: 'The Outdoors',
-    description: 'Step closer to the turquoise waters of Paradise Island.',
-    image: '/images/home/pool.jpg',
-  },
+  // {
+  //   number: '08',
+  //   title: 'Private Beach',
+  //   category: 'The Outdoors',
+  //   description: 'Step closer to the turquoise waters of Paradise Island.',
+  //   image: '/images/home/pool.jpg',
+  // },
   {
     number: '10',
     title: 'Villa Exterior',
@@ -404,26 +409,59 @@ export default function VillaGalleryShowcase() {
         relative
         overflow-hidden
         bg-white
-        py-24
-        md:py-28
-        lg:py-32
+
+        py-16
+
+        sm:py-20
+
+        md:py-24
+
+        lg:py-28
+
+        xl:py-32
+
+        2xl:py-36
       "
     >
       {/* =====================================================
           HEADER
       ===================================================== */}
 
-      <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-0">
+      <div
+        className="
+          mx-auto
+          w-full
+          max-w-360
+
+          px-3
+
+          sm:px-4
+
+          md:px-6
+
+          lg:px-8
+
+          xl:px-10
+
+          2xl:px-0
+        "
+      >
         <div
           className="
             gallery-header
             mb-12
             grid
             gap-10
+
+            sm:mb-13
+
             md:mb-14
+
             lg:grid-cols-[1fr_0.75fr]
             lg:items-end
             lg:gap-20
+
+            xl:mb-16
           "
         >
           {/* =================================================
@@ -431,38 +469,83 @@ export default function VillaGalleryShowcase() {
           ================================================= */}
 
           <div className="max-w-2xl">
-            {/* Eyebrow */}
+            {/* =============================================
+                EYEBROW
 
-            <div className="mb-5 flex justify-center md:justify-start items-center gap-3">
-              <span className="h-3 w-3 rounded-full bg-midnight" />
+                Same bordered-pill treatment used across
+                VillaIntro / Highlights.
+            ============================================= */}
+
+            <div
+              className="
+                mb-5
+                inline-flex
+                w-fit
+                items-center
+                gap-2
+
+                self-center
+                justify-self-center
+
+                rounded-full
+                border
+                border-slate-200
+                bg-mist
+                px-3
+                py-1.5
+
+                sm:px-3.5
+
+                md:justify-self-start
+                md:px-4
+              "
+            >
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#B58A52]" />
 
               <span
                 className="
-                  text-[10px]
+                  text-[9px]
                   font-semibold
                   uppercase
-                  tracking-[0.25em]
+                  tracking-[0.2em]
                   text-slate-muted
+
+                  sm:text-[10px]
+
+                  lg:text-[11px]
                 "
               >
                 Explore The Villa
               </span>
             </div>
 
+            <div className="flex justify-center md:hidden">
+              {/* Spacer wrapper handles centering the pill above on mobile */}
+            </div>
+
             {/* Heading */}
 
             <h2
               className="
-                font-display 
+                font-display
                 text-center
-                md:text-left
-                text-5xl
                 font-medium
-                leading-[0.95]
+                leading-[1.05]
                 tracking-tight
                 text-midnight
-                sm:text-6xl
-                md:text-7xl
+
+                text-[40px]
+
+                sm:text-5xl
+
+                md:text-left
+                md:text-6xl
+
+                lg:text-[56px]
+
+                xl:text-[64px]
+
+                2xl:text-[72px]
               "
             >
               A closer look at
@@ -478,15 +561,24 @@ export default function VillaGalleryShowcase() {
           <div className="max-w-lg lg:justify-self-end">
             <p
               className="
+                -mt-5
                 max-w-lg
-                md:text-end
-                -mt-5 md:mt-0
-                text-base
+                text-center
+                text-sm
                 leading-7
-                text-center 
                 text-slate-muted
-                md:text-lg
+
+                sm:text-lg
+                sm:leading-7.5
+
+                md:-mt-0
+                md:text-end
                 md:leading-8
+
+                xl:max-w-md
+                xl:text-lg
+
+                2xl:text-xl
               "
             >
               Explore the spaces, views, and details that make your stay at
@@ -502,7 +594,11 @@ export default function VillaGalleryShowcase() {
                 items-center
                 justify-end
                 gap-3
+
                 md:flex
+
+                lg:mt-8
+                lg:gap-4
               "
             >
               <button
@@ -524,9 +620,15 @@ export default function VillaGalleryShowcase() {
                   hover:border-ocean
                   hover:bg-ocean
                   hover:text-white
+
+                  lg:h-13
+                  lg:w-13
+
+                  xl:h-14
+                  xl:w-14
                 "
               >
-                <GoArrowLeft size={19} />
+                <GoArrowLeft size={19} className="xl:size-[21px]" />
               </button>
 
               <button
@@ -548,9 +650,15 @@ export default function VillaGalleryShowcase() {
                   hover:border-ocean
                   hover:bg-ocean
                   hover:text-white
+
+                  lg:h-13
+                  lg:w-13
+
+                  xl:h-14
+                  xl:w-14
                 "
               >
-                <GoArrowRight size={19} />
+                <GoArrowRight size={19} className="xl:size-[21px]" />
               </button>
             </div>
           </div>
@@ -582,10 +690,26 @@ export default function VillaGalleryShowcase() {
             flex
             w-max
             gap-3
-            pl-5
-            pr-5
+            pl-3
+            pr-3
+
             sm:gap-4
+            sm:pl-4
+            sm:pr-4
+
             md:gap-5
+            md:pl-6
+            md:pr-6
+
+            lg:pl-8
+            lg:pr-8
+
+            xl:gap-6
+            xl:pl-10
+            xl:pr-10
+
+            2xl:pl-12
+            2xl:pr-12
           "
         >
           {infiniteItems.map((item, index) => (
@@ -600,16 +724,28 @@ export default function VillaGalleryShowcase() {
                 group
                 relative
                 block
-                h-[440px]
-                w-[78vw]
                 shrink-0
                 overflow-hidden
                 rounded-2xl
                 bg-midnight
+
+                h-[440px]
+                w-[78vw]
+
                 sm:h-[470px]
                 sm:w-[340px]
+
                 md:h-[500px]
                 md:w-[380px]
+
+                lg:h-[520px]
+                lg:w-[400px]
+
+                xl:h-[560px]
+                xl:w-[420px]
+
+                2xl:h-[580px]
+                2xl:w-[440px]
               "
             >
               {/* =================================================
@@ -628,7 +764,12 @@ export default function VillaGalleryShowcase() {
                     ease-out
                     group-hover:scale-105
                   "
-                  sizes="380px"
+                  sizes="
+                    (max-width: 640px) 78vw,
+                    (max-width: 1024px) 380px,
+                    (max-width: 1280px) 400px,
+                    440px
+                  "
                 />
               </div>
 
@@ -640,10 +781,12 @@ export default function VillaGalleryShowcase() {
                 className="
                   absolute
                   inset-0
-                  bg-gradient-to-t
+
+                  bg-linear-to-t
                   from-midnight
                   via-midnight/35
                   to-midnight/5
+
                   transition-all
                   duration-700
                   group-hover:from-midnight/90
@@ -664,9 +807,14 @@ export default function VillaGalleryShowcase() {
                   flex
                   items-start
                   justify-between
+
                   md:left-6
                   md:right-6
                   md:top-6
+
+                  xl:left-7
+                  xl:right-7
+                  xl:top-7
                 "
               >
                 {/* Category */}
@@ -679,12 +827,18 @@ export default function VillaGalleryShowcase() {
                     bg-white/10
                     px-3
                     py-1.5
+
                     text-[9px]
                     font-medium
                     uppercase
                     tracking-[0.14em]
                     text-white/90
+
                     backdrop-blur-md
+
+                    lg:text-[10px]
+
+                    xl:px-3.5
                   "
                 >
                   {item.category}
@@ -697,6 +851,8 @@ export default function VillaGalleryShowcase() {
                     font-display
                     text-2xl
                     text-white/50
+
+                    xl:text-3xl
                   "
                 >
                   {item.number}
@@ -713,7 +869,10 @@ export default function VillaGalleryShowcase() {
                   inset-x-0
                   bottom-0
                   p-5
+
                   md:p-6
+
+                  xl:p-7
                 "
               >
                 {/* Title */}
@@ -721,10 +880,14 @@ export default function VillaGalleryShowcase() {
                 <h3
                   className="
                     font-display
-                    text-3xl
                     leading-none
                     text-white
+
+                    text-3xl
+
                     md:text-[34px]
+
+                    xl:text-4xl
                   "
                 >
                   {item.title}
@@ -736,10 +899,17 @@ export default function VillaGalleryShowcase() {
                   className="
                     mt-3
                     max-w-[300px]
-                    text-xs
                     leading-5
                     text-white/60
+
+                    text-xs
+
                     md:text-sm
+
+                    xl:mt-4
+                    xl:max-w-[320px]
+                    xl:text-base
+                    xl:leading-6
                   "
                 >
                   {item.description}
@@ -753,6 +923,8 @@ export default function VillaGalleryShowcase() {
                     flex
                     items-center
                     justify-between
+
+                    xl:mt-6
                   "
                 >
                   <span
@@ -760,11 +932,14 @@ export default function VillaGalleryShowcase() {
                       flex
                       items-center
                       gap-2
+
                       text-[9px]
                       font-semibold
                       uppercase
                       tracking-[0.18em]
                       text-champagne
+
+                      xl:text-[10px]
                     "
                   >
                     View Gallery
@@ -790,13 +965,17 @@ export default function VillaGalleryShowcase() {
                       rounded-full
                       bg-white
                       text-midnight
+
                       transition-all
                       duration-500
                       group-hover:rotate-45
                       group-hover:bg-champagne
+
+                      xl:h-11
+                      xl:w-11
                     "
                   >
-                    <GoArrowUpRight size={17} />
+                    <GoArrowUpRight size={17} className="xl:size-[19px]" />
                   </span>
                 </div>
               </div>
@@ -816,6 +995,9 @@ export default function VillaGalleryShowcase() {
           items-center
           justify-center
           gap-3
+
+          sm:mt-9
+
           md:hidden
         "
       >
@@ -838,9 +1020,12 @@ export default function VillaGalleryShowcase() {
             duration-300
             active:scale-95
             active:bg-ivory
+
+            sm:h-12
+            sm:w-12
           "
         >
-          <GoArrowLeft size={18} />
+          <GoArrowLeft size={18} className="sm:size-[19px]" />
         </button>
 
         <button
@@ -862,9 +1047,12 @@ export default function VillaGalleryShowcase() {
             duration-300
             active:scale-95
             active:bg-ivory
+
+            sm:h-12
+            sm:w-12
           "
         >
-          <GoArrowRight size={18} />
+          <GoArrowRight size={18} className="sm:size-[19px]" />
         </button>
       </div>
     </section>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import {
   FiArrowRight,
@@ -20,14 +20,10 @@ const inquiryTypes = [
   'Looking to host a wedding or event',
 ];
 
-const steps = [
-  'Select Dates',
-  'Guest Details',
-  'Stay Details',
-  'Review & Confirm',
-];
+const steps = ['Select Dates', 'Guest Details'];
 
 export default function BookingDetailsPage() {
+  const router = useRouter();
   const searchParams = useSearchParams();
 
   const checkIn = searchParams.get('checkIn');
@@ -44,6 +40,9 @@ export default function BookingDetailsPage() {
     phone: '',
     notes: '',
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const formatDate = (dateString) => {
     if (!dateString) return 'Not selected';
@@ -77,32 +76,72 @@ export default function BookingDetailsPage() {
       ...current,
       [name]: value,
     }));
+
+    if (submitError) {
+      setSubmitError('');
+    }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    /*
-     * Connect the next booking step here.
-     *
-     * All collected information is available here:
-     *
-     * checkIn
-     * checkOut
-     * formData
-     * contactMethod
-     * inquiryType
-     */
-    console.log({
-      dates: {
-        checkIn,
-        checkOut,
-        nights,
-      },
-      guest: formData,
-      contactMethod,
-      inquiryType,
-    });
+    if (isSubmitting) return;
+
+    setSubmitError('');
+
+    if (!checkIn || !checkOut) {
+      setSubmitError(
+        'Please select your check-in and check-out dates before continuing.'
+      );
+      return;
+    }
+
+    if (nights <= 0) {
+      setSubmitError('Please select valid check-in and check-out dates.');
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+
+      const response = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          checkIn,
+          checkOut,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          contactMethod,
+          inquiryType,
+          notes: formData.notes,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        setSubmitError(
+          data.message ||
+            'Something went wrong while submitting your inquiry. Please try again.'
+        );
+        return;
+      }
+
+      router.push('/booking-my-stay/success');
+    } catch (error) {
+      console.error('Booking submission error:', error);
+
+      setSubmitError(
+        'Unable to submit your inquiry right now. Please try again.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -128,7 +167,7 @@ export default function BookingDetailsPage() {
         <div className="mx-auto max-w-[1440px]">
           {/* Desktop Progress */}
 
-          <div className="hidden items-center pt-40  justify-center lg:flex">
+          <div className="hidden items-center justify-center pt-40 lg:flex">
             <div className="flex w-full max-w-5xl items-center">
               {steps.map((step, index) => {
                 const completed = index === 0;
@@ -149,9 +188,7 @@ export default function BookingDetailsPage() {
                           text-xs
                           font-medium
                           ${
-                            completed
-                              ? 'border-midnight bg-midnight text-white'
-                              : active
+                            completed || active
                               ? 'border-midnight bg-midnight text-white'
                               : 'border-slate/20 bg-white text-slate-muted'
                           }
@@ -194,10 +231,10 @@ export default function BookingDetailsPage() {
 
           {/* Mobile Progress */}
 
-          <div className="flex items-center mt-26 justify-between lg:hidden">
+          <div className="mt-26 flex items-center justify-between lg:hidden">
             <div>
               <p className="text-[9px] font-medium uppercase tracking-[0.24em] text-slate-muted">
-                Step 02 of 04
+                Step 02 of 02
               </p>
 
               <p className="mt-1 font-display text-xl text-midnight">
@@ -208,8 +245,6 @@ export default function BookingDetailsPage() {
             <div className="flex items-center gap-1.5">
               <span className="h-1.5 w-5 rounded-full bg-midnight" />
               <span className="h-1.5 w-5 rounded-full bg-midnight" />
-              <span className="h-1.5 w-1.5 rounded-full bg-slate/15" />
-              <span className="h-1.5 w-1.5 rounded-full bg-slate/15" />
             </div>
           </div>
         </div>
@@ -502,7 +537,13 @@ export default function BookingDetailsPage() {
                         <button
                           key={method}
                           type="button"
-                          onClick={() => setContactMethod(method)}
+                          onClick={() => {
+                            setContactMethod(method);
+
+                            if (submitError) {
+                              setSubmitError('');
+                            }
+                          }}
                           className={`
                             flex
                             h-12
@@ -544,7 +585,13 @@ export default function BookingDetailsPage() {
                         <button
                           key={type}
                           type="button"
-                          onClick={() => setInquiryType(type)}
+                          onClick={() => {
+                            setInquiryType(type);
+
+                            if (submitError) {
+                              setSubmitError('');
+                            }
+                          }}
                           className={`
                             flex
                             min-h-12
@@ -624,12 +671,34 @@ export default function BookingDetailsPage() {
                 </div>
 
                 {/* =================================================
-                    CONTINUE
+                    SUBMIT
                 ================================================= */}
 
                 <div className="border-t border-slate/10 pt-8">
+                  {submitError && (
+                    <div
+                      role="alert"
+                      aria-live="polite"
+                      className="
+                        mb-5
+                        rounded-xl
+                        border
+                        border-red-200
+                        bg-red-50
+                        px-4
+                        py-3
+                        text-sm
+                        leading-6
+                        text-red-700
+                      "
+                    >
+                      {submitError}
+                    </div>
+                  )}
+
                   <button
                     type="submit"
+                    disabled={isSubmitting}
                     className="
                       group
                       flex
@@ -649,19 +718,42 @@ export default function BookingDetailsPage() {
                       duration-500
                       hover:bg-ocean
                       active:scale-[0.99]
+                      disabled:cursor-not-allowed
+                      disabled:opacity-60
                       sm:h-16
                     "
                   >
-                    <span>Continue to Stay Details</span>
+                    <span>
+                      {isSubmitting
+                        ? 'Submitting Inquiry...'
+                        : 'Submit Reservation Inquiry'}
+                    </span>
 
-                    <FiArrowRight
-                      size={18}
-                      className="
-                        transition-transform
-                        duration-300
-                        group-hover:translate-x-1
-                      "
-                    />
+                    {!isSubmitting && (
+                      <FiArrowRight
+                        size={18}
+                        className="
+                          transition-transform
+                          duration-300
+                          group-hover:translate-x-1
+                        "
+                      />
+                    )}
+
+                    {isSubmitting && (
+                      <span
+                        className="
+                          h-4
+                          w-4
+                          animate-spin
+                          rounded-full
+                          border-2
+                          border-white/30
+                          border-t-white
+                        "
+                        aria-hidden="true"
+                      />
+                    )}
                   </button>
 
                   <p className="mt-4 text-center text-[11px] leading-5 text-slate-muted">

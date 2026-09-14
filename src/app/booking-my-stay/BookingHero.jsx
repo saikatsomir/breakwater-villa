@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import { FiArrowDown } from 'react-icons/fi';
+import { FiArrowDown, FiArrowUpRight } from 'react-icons/fi';
 
 export default function BookingHero() {
   const scrollToBooking = () => {
@@ -28,234 +28,296 @@ export default function BookingHero() {
       aria-labelledby="booking-hero-heading"
       className="
         relative
-        flex
-        min-h-[680px]
-        w-full
-        items-end
-        justify-center
+        h-[680px]
         overflow-hidden
         bg-midnight
-        sm:min-h-[720px]
-        lg:min-h-[820px]
-        xl:min-h-[860px]
+        sm:h-[700px]
+        md:h-[720px]
+        lg:h-[840px]
+        xl:h-[860px]
+        2xl:h-[980px]
       "
     >
       {/* =====================================================
-          BACKGROUND IMAGE
+          BACKGROUND
       ===================================================== */}
 
-      <Image
-        src="/images/home/villa-intro.jpg"
-        alt="Breakwater Villa luxury vacation rental in Ocean Club Estates, Paradise Island, Bahamas"
-        fill
-        priority
-        sizes="100vw"
-        className="
-          object-cover
-          object-center
-        "
-      />
+      <div className="absolute inset-0">
+        <Image
+          src="/images/home/villa-intro.jpg"
+          alt="Breakwater Villa luxury vacation rental in Ocean Club Estates, Paradise Island, Bahamas"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-top"
+        />
+
+        {/* Overall image treatment */}
+        <div className="absolute inset-0 bg-midnight/20" />
+
+        {/* Left / bottom cinematic gradient */}
+        <div
+          className="
+            absolute inset-0
+            bg-gradient-to-t
+            from-midnight
+            via-midnight/35
+            to-midnight/5
+          "
+        />
+
+        {/* Subtle side gradient for depth */}
+        <div
+          className="
+            absolute inset-0
+            bg-gradient-to-r
+            from-midnight/35
+            via-transparent
+            to-transparent
+          "
+        />
+      </div>
 
       {/* =====================================================
-          OVERLAY
-      ===================================================== */}
-
-      <div
-        aria-hidden="true"
-        className="
-          absolute
-          inset-0
-          bg-gradient-to-t
-          from-midnight/85
-          via-midnight/35
-          to-transparent
-        "
-      />
-
-      <div
-        aria-hidden="true"
-        className="
-          absolute
-          inset-0
-          bg-[radial-gradient(ellipse_at_bottom,rgba(49,75,53,0.55),transparent_65%)]
-        "
-      />
-
-      {/* =====================================================
-          CENTERED CONTENT
+          CONTENT
       ===================================================== */}
 
       <div
         className="
-          relative
-          z-10
-          mx-auto
-          flex
-          w-full
-          max-w-[1440px]
-          justify-center
-          px-5
-          pb-14
-          text-center
-          sm:px-8
-          sm:pb-16
-          md:px-10
-          md:pb-20
-          lg:px-14
-          lg:pb-24
-          xl:px-16
-          xl:pb-28
+          relative z-10
+          mx-auto flex h-full w-full max-w-360
+          items-end
+          px-3 pb-32
+          sm:px-4 sm:pb-12
+          md:px-6 md:pb-14
+          lg:px-8 lg:pb-22
+          xl:px-10 xl:pb-30
+          2xl:px-0 2xl:pb-40
         "
       >
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.9,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="
-            flex
-            max-w-4xl
-            flex-col
-            items-center
-            text-white
-          "
-        >
+        <div className="grid w-full items-end lg:grid-cols-[1fr_auto] lg:gap-16 xl:gap-24 2xl:gap-28">
           {/* =================================================
-              EYEBROW
+              MAIN CONTENT
           ================================================= */}
 
-          {/* =================================================
-              HEADING
-          ================================================= */}
-
-          <h1
-            id="booking-hero-heading"
-            className="
-              max-w-4xl
-              font-display
-              text-5xl
-              font-normal
-              leading-[0.95]
-              tracking-[-0.035em]
-              sm:text-6xl
-              md:text-7xl
-              lg:text-[84px]
-              xl:text-[96px]
-            "
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.9,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="w-full max-w-4xl"
           >
-            Your private escape{' '}
-            <span className="italic text-[#B68A52]">awaits.</span>
-          </h1>
+            {/* Eyebrow */}
+            <div className="mb-5 flex items-center gap-2.5 sm:mb-6 sm:gap-3">
+              <span className="h-1.5 w-1.5 rounded-full bg-champagne sm:h-2 sm:w-2" />
 
-          {/* =================================================
-              DESCRIPTION
-          ================================================= */}
+              <span className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/65 sm:text-[10px] lg:text-[11px]">
+                Reserve Your Stay
+              </span>
+            </div>
 
-          <p
-            className="
-              mt-6
-              max-w-2xl
-              text-sm
-              leading-7
-              text-white/80
-              sm:mt-7
-              sm:text-base
-              sm:leading-8
-              md:text-lg
-            "
-          >
-            Reserve your stay at Breakwater Villa and experience effortless
-            island living in Ocean Club Estates, Paradise Island, The Bahamas.
-          </p>
-
-          {/* =================================================
-              LOCATION
-          ================================================= */}
-
-          <div className="mt-7 flex items-center justify-center gap-3 sm:mt-9">
-            <span
-              aria-hidden="true"
+            {/* Heading */}
+            <h1
+              id="booking-hero-heading"
               className="
-                h-1.5
-                w-1.5
-                rounded-full
-                bg-[#B68A52]
-              "
-            />
-
-            <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-white/70 sm:text-xs sm:tracking-[0.26em]">
-              Ocean Club Estates · Paradise Island
-            </span>
-
-            <span
-              aria-hidden="true"
-              className="
-                h-1.5
-                w-1.5
-                rounded-full
-                bg-[#B68A52]
-              "
-            />
-          </div>
-
-          {/* =================================================
-              SCROLL CTA
-          ================================================= */}
-
-          <button
-            type="button"
-            onClick={scrollToBooking}
-            className="
-              group
-              mt-9
-              inline-flex
-              items-center
-              justify-center
-              gap-4
-              text-xs
-              font-medium
-              uppercase
-              tracking-[0.22em]
-              text-white
-              transition-colors
-              duration-300
-              hover:text-[#B68A52]
-              sm:mt-10
-            "
-          >
-            <span
-              className="
-                flex
-                h-11
-                w-11
-                items-center
-                justify-center
-                rounded-full
-                border
-                border-white/40
-                transition-all
-                duration-500
-                group-hover:border-[#B68A52]
-                group-hover:bg-[#B68A52]
-                group-hover:text-white
+                max-w-4xl
+                font-display
+                text-[40px]
+                font-medium
+                leading-[1.02]
+                tracking-tight
+                text-white
+                sm:text-5xl
+                md:text-6xl
+                lg:text-[56px]
+                xl:text-[64px]
+                2xl:text-[72px]
               "
             >
-              <FiArrowDown
-                size={17}
-                className="
-                  transition-transform
-                  duration-500
-                  group-hover:translate-y-1
-                "
-              />
-            </span>
+              Your private escape
+              <br />
+              <span className="italic text-champagne">awaits.</span>
+            </h1>
 
-            <span>Begin Your Reservation</span>
-          </button>
-        </motion.div>
+            {/* Description */}
+            <p
+              className="
+                mt-5
+                max-w-xl
+                text-sm
+                leading-6
+                text-white/65
+                sm:mt-6
+                sm:text-base
+                sm:leading-7
+                md:text-lg
+                md:leading-8
+                xl:mt-7
+                xl:text-xl
+                xl:leading-8.5
+              "
+            >
+              Reserve your stay at Breakwater Villa and experience effortless
+              island living in Ocean Club Estates, Paradise Island, The Bahamas.
+            </p>
+          </motion.div>
+
+          {/* =================================================
+              BOOKING CTA
+          ================================================= */}
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.15,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="
+              mt-8
+              flex
+              flex-col
+              items-start
+              lg:mt-0
+              lg:items-end
+            "
+          >
+            {/* Location */}
+            <div className="mb-5 flex items-center gap-2.5 lg:justify-end">
+              <span className="h-1.5 w-1.5 rounded-full bg-champagne" />
+
+              <span className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/45 sm:text-[10px] sm:tracking-[0.2em]">
+                Ocean Club Estates · Paradise Island
+              </span>
+            </div>
+
+            {/* CTA */}
+            <button
+              type="button"
+              onClick={scrollToBooking}
+              className="
+                group
+                inline-flex
+                items-center
+                gap-4
+                rounded-full
+                border
+                border-white/20
+                bg-white/10
+                py-2
+                pl-5
+                pr-2
+                text-[10px]
+                font-medium
+                uppercase
+                tracking-[0.18em]
+                text-white
+                backdrop-blur-sm
+                transition-all
+                duration-500
+                hover:border-champagne
+                hover:bg-champagne
+                hover:text-midnight
+                sm:py-2.5
+                sm:pl-6
+                sm:pr-2.5
+                sm:text-xs
+                sm:tracking-[0.2em]
+              "
+            >
+              <span>Begin Your Reservation</span>
+
+              <span
+                className="
+                  flex
+                  h-9
+                  w-9
+                  shrink-0
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-champagne
+                  text-midnight
+                  transition-all
+                  duration-500
+                  group-hover:bg-midnight
+                  group-hover:text-white
+                  sm:h-10
+                  sm:w-10
+                "
+              >
+                <FiArrowUpRight
+                  size={17}
+                  strokeWidth={1.5}
+                  className="
+                    transition-transform
+                    duration-500
+                    group-hover:rotate-45
+                  "
+                />
+              </span>
+            </button>
+          </motion.div>
+        </div>
       </div>
+
+      {/* =====================================================
+          SCROLL INDICATOR
+      ===================================================== */}
+
+      <motion.button
+        type="button"
+        onClick={scrollToBooking}
+        aria-label="Scroll to booking form"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          duration: 1,
+          delay: 0.8,
+        }}
+        className="
+          absolute
+          bottom-5
+          left-1/2
+          z-20
+          hidden
+          -translate-x-1/2
+          items-center
+          justify-center
+          text-white/45
+          transition-colors
+          duration-300
+          hover:text-champagne
+          sm:flex
+          md:bottom-7
+          lg:bottom-8
+        "
+      >
+        <span
+          className="
+            flex
+            h-8
+            w-8
+            items-center
+            justify-center
+            rounded-full
+            border
+            border-white/20
+            transition-all
+            duration-500
+            hover:border-champagne
+            sm:h-9
+            sm:w-9
+            md:h-10
+            md:w-10
+          "
+        >
+          <FiArrowDown size={14} strokeWidth={1.4} className="animate-pulse" />
+        </span>
+      </motion.button>
     </section>
   );
 }

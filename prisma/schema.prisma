@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Booking {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  checkIn  DateTime
+  checkOut DateTime
+
+  firstName String
+  lastName  String
+  email     String
+  phone     String
+
+  contactMethod String
+  inquiryType   String
+  notes         String?
+
+  // Secure token used by the owner email buttons.
+  // This is temporarily optional so existing bookings can be migrated safely.
+  actionToken String @unique
+
+  status BookingStatus @default(PENDING)
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+}

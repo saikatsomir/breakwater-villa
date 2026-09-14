@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { FiArrowLeft, FiArrowRight, FiCheck } from 'react-icons/fi';
@@ -45,6 +45,10 @@ function isSameDay(first, second) {
 
 function isBefore(first, second) {
   return startOfDay(first).getTime() < startOfDay(second).getTime();
+}
+
+function isAfter(first, second) {
+  return startOfDay(first).getTime() > startOfDay(second).getTime();
 }
 
 function formatDate(date) {
@@ -101,7 +105,55 @@ function getCalendarDays(year, month) {
   return days;
 }
 
-function MonthCalendar({ monthDate, checkIn, checkOut, today, onDateSelect }) {
+function isDateUnavailable(date, confirmedBookings) {
+  const currentDate = startOfDay(date);
+
+  return confirmedBookings.some((booking) => {
+    const checkIn = startOfDay(new Date(booking.checkIn));
+    const checkOut = startOfDay(new Date(booking.checkOut));
+
+    /*
+     * Check-in is unavailable.
+     * Check-out is intentionally available because
+     * a new guest can arrive on the same day another
+     * guest checks out.
+     *
+     * Example:
+     * Existing: Oct 17 → Oct 20
+     * New guest may select Oct 20 as check-in.
+     */
+    return (
+      currentDate.getTime() >= checkIn.getTime() &&
+      currentDate.getTime() < checkOut.getTime()
+    );
+  });
+}
+
+function hasUnavailableDateBetween(startDate, endDate, confirmedBookings) {
+  if (!startDate || !endDate) return false;
+
+  const current = startOfDay(startDate);
+  const end = startOfDay(endDate);
+
+  while (current < end) {
+    if (isDateUnavailable(current, confirmedBookings)) {
+      return true;
+    }
+
+    current.setDate(current.getDate() + 1);
+  }
+
+  return false;
+}
+
+function MonthCalendar({
+  monthDate,
+  checkIn,
+  checkOut,
+  today,
+  confirmedBookings,
+  onDateSelect,
+}) {
   const year = monthDate.getFullYear();
   const month = monthDate.getMonth();
 
@@ -144,16 +196,45 @@ function MonthCalendar({ monthDate, checkIn, checkOut, today, onDateSelect }) {
 
       <div className="grid grid-cols-7">
         {days.map(({ date, currentMonth }, index) => {
-          const disabled = isBefore(date, today);
+          const pastDate = isBefore(date, today);
 
-          const selectedStart = checkIn && isSameDay(date, checkIn);
+          const unavailableDate = isDateUnavailable(date, confirmedBookings);
 
-          const selectedEnd = checkOut && isSameDay(date, checkOut);
+          /*
+           * Dates belonging to the previous/next month are
+           * displayed only to complete the calendar grid.
+           * They must NEVER be selectable.
+           */
+          const disabled = !currentMonth || pastDate || unavailableDate;
+
+          /*
+           * Overflow days (currentMonth === false) are placeholder
+           * cells that fill out the 6x7 grid. The SAME date value
+           * can legitimately appear as a real, selectable day in the
+           * adjacent month's own calendar (e.g. Jan 30 is a real day
+           * in the January grid, but also shows up as a disabled
+           * leading placeholder in the February grid).
+           *
+           * Selected/in-range styling must only ever apply to the
+           * cell that actually belongs to its own month — otherwise
+           * the placeholder cell in the *other* calendar lights up
+           * too, even though it's disabled and shouldn't be treated
+           * as selected.
+           */
+          const selectedStart =
+            currentMonth && checkIn && isSameDay(date, checkIn);
+
+          const selectedEnd =
+            currentMonth && checkOut && isSameDay(date, checkOut);
 
           const isSelected = selectedStart || selectedEnd;
 
           const isInRange =
-            checkIn && checkOut && date > checkIn && date < checkOut;
+            currentMonth &&
+            checkIn &&
+            checkOut &&
+            date > checkIn &&
+            date < checkOut;
 
           return (
             <div
@@ -179,6 +260,7 @@ function MonthCalendar({ monthDate, checkIn, checkOut, today, onDateSelect }) {
                 disabled={disabled}
                 onClick={() => onDateSelect(date)}
                 aria-label={`Select ${formatDate(date)}`}
+                aria-disabled={disabled}
                 className={`
                   relative
                   z-10
@@ -192,10 +274,12 @@ function MonthCalendar({ monthDate, checkIn, checkOut, today, onDateSelect }) {
                   transition-all
                   duration-200
                   ${
-                    disabled
+                    !currentMonth
+                      ? 'cursor-default text-slate/15'
+                      : pastDate
                       ? 'cursor-not-allowed text-slate/20'
-                      : !currentMonth
-                      ? 'text-slate/30 hover:text-slate'
+                      : unavailableDate
+                      ? 'cursor-not-allowed text-slate/25 line-through'
                       : 'text-slate hover:bg-mist hover:text-midnight'
                   }
                   ${
@@ -230,13 +314,81 @@ export default function BookingDates() {
   const [checkIn, setCheckIn] = useState(null);
   const [checkOut, setCheckOut] = useState(null);
 
+  const [confirmedBookings, setConfirmedBookings] = useState([]);
+
+  const [availabilityLoading, setAvailabilityLoading] = useState(true);
+
+  const [availabilityError, setAvailabilityError] = useState('');
+
   const nextMonth = useMemo(
     () => new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1),
     [currentMonth]
   );
 
+  /*
+   * Load all confirmed bookings.
+   *
+   * This runs once when the calendar loads.
+   */
+  useEffect(() => {
+    async function loadAvailability() {
+      try {
+        setAvailabilityLoading(true);
+        setAvailabilityError('');
+
+        const response = await fetch('/api/bookings/availability', {
+          method: 'GET',
+          cache: 'no-store',
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(
+            data.message || 'Unable to load booking availability.'
+          );
+        }
+
+        setConfirmedBookings(data.bookings || []);
+      } catch (error) {
+        console.error('Load booking availability error:', error);
+
+        setAvailabilityError(
+          'Unable to load availability. Please refresh the page and try again.'
+        );
+      } finally {
+        setAvailabilityLoading(false);
+      }
+    }
+
+    loadAvailability();
+  }, []);
+
   const handleDateSelect = (date) => {
+    /*
+     * Never allow dates from another month to be selected.
+     * MonthCalendar already disables them, but this is
+     * an additional safety check.
+     */
+    const visibleCurrentMonth =
+      date.getFullYear() === currentMonth.getFullYear() &&
+      date.getMonth() === currentMonth.getMonth();
+
+    const visibleNextMonth =
+      date.getFullYear() === nextMonth.getFullYear() &&
+      date.getMonth() === nextMonth.getMonth();
+
+    if (!visibleCurrentMonth && !visibleNextMonth) {
+      return;
+    }
+
+    // Never allow past dates.
     if (isBefore(date, today)) return;
+
+    // Never allow confirmed/unavailable dates.
+    if (isDateUnavailable(date, confirmedBookings)) {
+      return;
+    }
 
     /*
      * No check-in selected yet.
@@ -261,6 +413,20 @@ export default function BookingDates() {
      * Same date as check-in.
      */
     if (isSameDay(date, checkIn)) {
+      setCheckOut(null);
+      return;
+    }
+
+    /*
+     * Do not allow a range to cross an unavailable
+     * confirmed booking.
+     */
+    if (hasUnavailableDateBetween(checkIn, date, confirmedBookings)) {
+      /*
+       * Instead of creating an invalid range,
+       * treat the clicked date as the new check-in.
+       */
+      setCheckIn(date);
       setCheckOut(null);
       return;
     }
@@ -339,8 +505,6 @@ export default function BookingDates() {
 
               return (
                 <div key={step} className="flex flex-1 items-center">
-                  {/* Step */}
-
                   <div className="flex shrink-0 items-center gap-3">
                     <span
                       className={`
@@ -378,8 +542,6 @@ export default function BookingDates() {
                       {step}
                     </span>
                   </div>
-
-                  {/* Connector */}
 
                   {index < STEPS.length - 1 && (
                     <div className="mx-5 h-px flex-1 bg-slate/10" />
@@ -535,6 +697,22 @@ export default function BookingDates() {
                 </button>
               </div>
 
+              {/* Availability loading */}
+
+              {availabilityLoading && (
+                <div className="mb-5 rounded-xl border border-slate/10 bg-white/60 px-4 py-3 text-center text-xs text-slate-muted">
+                  Checking availability...
+                </div>
+              )}
+
+              {/* Availability error */}
+
+              {availabilityError && (
+                <div className="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-center text-xs leading-5 text-red-700">
+                  {availabilityError}
+                </div>
+              )}
+
               {/* Two Month Calendar */}
 
               <div className="grid gap-8 md:grid-cols-2 md:gap-10">
@@ -543,6 +721,7 @@ export default function BookingDates() {
                   checkIn={checkIn}
                   checkOut={checkOut}
                   today={today}
+                  confirmedBookings={confirmedBookings}
                   onDateSelect={handleDateSelect}
                 />
 
@@ -552,8 +731,31 @@ export default function BookingDates() {
                     checkIn={checkIn}
                     checkOut={checkOut}
                     today={today}
+                    confirmedBookings={confirmedBookings}
                     onDateSelect={handleDateSelect}
                   />
+                </div>
+              </div>
+
+              {/* Legend */}
+
+              <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-slate/10 pt-5">
+                <div className="flex items-center gap-2">
+                  <span className="h-2.5 w-2.5 rounded-full bg-midnight" />
+
+                  <span className="text-[10px] uppercase tracking-[0.16em] text-slate-muted">
+                    Available
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span className="flex h-2.5 w-2.5 items-center justify-center text-[11px] leading-none text-slate/40">
+                    ×
+                  </span>
+
+                  <span className="text-[10px] uppercase tracking-[0.16em] text-slate-muted">
+                    Not Available
+                  </span>
                 </div>
               </div>
 

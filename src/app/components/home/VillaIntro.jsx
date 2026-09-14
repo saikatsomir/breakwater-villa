@@ -4,16 +4,73 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { GoArrowUpRight } from 'react-icons/go';
+
+import Button from '../ui/SiteButton';
 import villa from '../../../../public/images/home/villa.jpg';
+
+const stats = [
+  { value: '6', label: 'Bedrooms' },
+  { value: '6', label: 'Bathrooms' },
+  { value: '12', label: 'Guests' },
+];
 
 export default function VillaIntro() {
   return (
     <section
       aria-labelledby="villa-intro-heading"
-      className="relative overflow-hidden bg-white py-20 sm:py-24 md:py-32 lg:py-40 xl:py-44"
+      className="
+        relative
+        overflow-hidden
+        bg-white
+
+        py-20
+
+        sm:py-24
+
+        md:py-32
+
+        lg:py-40
+
+        xl:py-44
+
+        2xl:py-52
+      "
     >
-      <div className="mx-auto max-w-360 px-4 sm:px-5 md:px-8 lg:px-10 xl:px-0">
-        <div className="grid items-center gap-14 sm:gap-16 md:gap-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20 xl:gap-28">
+      <div
+        className="
+          mx-auto
+          w-full
+          max-w-360
+
+          px-3
+
+          sm:px-4
+
+          md:px-6
+
+          lg:px-8
+
+          xl:px-10
+
+          2xl:px-0
+        "
+      >
+        <div
+          className="
+            grid
+            items-center
+            gap-14
+
+            sm:gap-16
+
+            md:gap-20
+
+            lg:grid-cols-[0.9fr_1.1fr]
+            lg:gap-20
+
+            xl:gap-28
+          "
+        >
           {/* =====================================================
               LEFT — CONTENT
           ===================================================== */}
@@ -28,46 +85,122 @@ export default function VillaIntro() {
             }}
             className="order-2 max-w-xl lg:order-1"
           >
-            {/* Eyebrow */}
+            {/* =================================================
+                EYEBROW
 
-            <div className="mb-6 flex items-center gap-3 sm:mb-7">
-              <span className="h-3 w-3 rounded-full bg-midnight" />
+                Same pill treatment as Hero's key-point chips.
+            ================================================= */}
 
-              <span className="text-[9px] font-semibold uppercase tracking-[0.23em] text-slate-muted sm:text-[10px] sm:tracking-[0.25em]">
+            <div
+              className="
+                mb-6
+                inline-flex
+                items-center
+                gap-2
+
+                rounded-full
+                border
+                border-slate-200
+                bg-mist
+                px-3
+                py-1.5
+
+                sm:mb-7
+                sm:px-3.5
+
+                md:px-4
+              "
+            >
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#B58A52]" />
+
+              <span
+                className="
+                  text-[9px]
+                  font-semibold
+                  uppercase
+                  tracking-[0.2em]
+                  text-slate-muted
+
+                  sm:text-[10px]
+
+                  lg:text-[11px]
+                "
+              >
                 The Villa
               </span>
             </div>
 
-            {/* Heading */}
+            {/* =================================================
+                HEADING
+
+                Matches Hero's desktop H1 scale (48px xl / 64px 2xl)
+                so this section heading doesn't outsize the page H1.
+            ================================================= */}
 
             <h2
               id="villa-intro-heading"
               className="
                 max-w-2xl
                 font-display
-                text-[40px]
                 font-medium
-                leading-[0.98]
+                leading-[1.05]
                 tracking-tight
                 text-black
+
+                text-[40px]
+
                 sm:text-5xl
+
                 md:text-6xl
-                lg:text-[62px]
-                xl:text-[68px]
+
+                lg:text-[56px]
+
+                xl:text-[64px]
+
+                2xl:text-[72px]
               "
             >
               A private escape,
               <br />
               designed for
               <br />
-              <span className="italic text-[#B68A52]">
+              <span className="italic text-[#B58A52]">
                 unforgettable stays.
               </span>
             </h2>
 
-            {/* Description */}
+            {/* =================================================
+                DESCRIPTION
 
-            <div className="mt-7 space-y-4 text-sm leading-6.5 text-slate-muted sm:mt-8 sm:space-y-5 sm:text-base sm:leading-7 md:text-lg md:leading-8">
+                Same subtitle scale as Hero's hero paragraph.
+            ================================================= */}
+
+            <div
+              className="
+                mt-7
+                space-y-4
+
+                text-sm
+                leading-6.5
+                text-slate-muted
+
+                sm:mt-8
+                sm:space-y-5
+                sm:text-base
+                sm:leading-7
+
+                md:text-lg
+                md:leading-8
+
+                lg:mt-9
+
+                xl:max-w-lg
+                xl:text-lg
+
+                2xl:text-xl
+                2xl:leading-9
+              "
+            >
               <p>
                 Welcome to Breakwater Villa — a private oceanfront retreat
                 created for slow mornings, long afternoons by the pool, and
@@ -83,117 +216,155 @@ export default function VillaIntro() {
 
             {/* =================================================
                 STATS
+
+                Redesigned as bordered cards, matching the
+                card treatment used in Hero's booking bar.
             ================================================= */}
 
-            <div className="mt-8 grid grid-cols-3 border-y border-slate/10 py-6 sm:mt-10 sm:py-7">
-              {/* Stat 1 */}
+            <div
+              className="
+                mt-8
+                grid
+                grid-cols-3
+                gap-3
 
-              <div className="border-r border-slate/10 pr-3 sm:pr-4">
-                <p className="font-display text-3xl leading-none text-midnight sm:text-4xl md:text-5xl">
-                  6
-                </p>
+                sm:mt-10
+                sm:gap-4
 
-                <p className="mt-2 text-[8px] font-semibold uppercase tracking-[0.15em] text-slate-muted sm:text-[9px] sm:tracking-[0.18em]">
-                  Bedrooms
-                </p>
-              </div>
+                lg:mt-11
+              "
+            >
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="
+                    rounded-xl
+                    border
+                    border-slate-100
+                    bg-white
+                    px-3
+                    py-4
 
-              {/* Stat 2 */}
+                    text-center
 
-              <div className="border-r border-slate/10 px-3 sm:px-4">
-                <p className="font-display text-3xl leading-none text-midnight sm:text-4xl md:text-5xl">
-                  6
-                </p>
+                    shadow-[0_2px_10px_rgba(11,42,58,0.04)]
 
-                <p className="mt-2 text-[8px] font-semibold uppercase tracking-[0.15em] text-slate-muted sm:text-[9px] sm:tracking-[0.18em]">
-                  Bathrooms
-                </p>
-              </div>
+                    sm:rounded-2xl
+                    sm:px-4
+                    sm:py-5
 
-              {/* Stat 3 */}
+                    xl:py-6
+                  "
+                >
+                  <p
+                    className="
+                      font-display
+                      leading-none
+                      text-midnight
 
-              <div className="pl-3 sm:pl-4">
-                <p className="font-display text-3xl leading-none text-midnight sm:text-4xl md:text-5xl">
-                  12
-                </p>
+                      text-3xl
 
-                <p className="mt-2 text-[8px] font-semibold uppercase tracking-[0.15em] text-slate-muted sm:text-[9px] sm:tracking-[0.18em]">
-                  Guests
-                </p>
-              </div>
+                      sm:text-4xl
+
+                      md:text-5xl
+
+                      xl:text-[54px]
+                    "
+                  >
+                    {stat.value}
+                  </p>
+
+                  <p
+                    className="
+                      mt-2
+                      text-[8px]
+                      font-semibold
+                      uppercase
+                      tracking-[0.15em]
+                      text-slate-muted
+
+                      sm:text-[9px]
+                      sm:tracking-[0.18em]
+
+                      lg:mt-3
+                    "
+                  >
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
             </div>
 
             {/* =================================================
-                LINK
+                CTA ROW
+
+                Same pattern as Hero: filled Button +
+                underlined secondary link, hidden below md.
             ================================================= */}
 
-            <Link
-              href="/villa-gallery"
-              aria-label="Explore Breakwater Villa and view the villa gallery"
+            <div
               className="
-                group
                 mt-8
-                hidden
+                flex
+                flex-wrap
                 items-center
-                gap-3
-                text-sm
-                font-medium
-                tracking-wide
-                text-midnight
-                md:inline-flex
-                sm:mt-9
-                sm:gap-4
-                sm:text-base
+                gap-4
+
+                sm:mt-10
+                sm:gap-6
+
+                lg:mt-11
               "
             >
-              <span className="relative">
-                Explore The Villa
-                <span
-                  className="
-                    absolute
-                    -bottom-2
-                    left-0
-                    h-px
-                    w-full
-                    origin-left
-                    bg-midnight
-                    transition-transform
-                    duration-500
-                    group-hover:scale-x-0
-                  "
-                />
-              </span>
-
-              <span
+              <Button
+                href="/villa-gallery"
                 className="
-                  flex
-                  h-9
-                  w-9
-                  items-center
-                  justify-center
-                  rounded-full
-                  border
-                  border-slate/15
-                  bg-white
-                  transition-all
-                  duration-500
-                  group-hover:border-[#B68A52]
-                  group-hover:bg-[#B68A52]
-                  sm:h-10
-                  sm:w-10
+                  text-white
+                  hover:bg-champagne
+                  hover:text-midnight
                 "
               >
+                Explore The Villa
+              </Button>
+
+              <Link
+                href="/villa-gallery"
+                aria-label="View the full Breakwater Villa gallery"
+                className="
+                  group
+                  hidden
+                  items-center
+                  gap-3
+                  border-b
+                  border-midnight
+                  pb-1
+
+                  text-base
+                  font-medium
+                  text-midnight
+
+                  transition-all
+                  duration-300
+
+                  md:inline-flex
+
+                  lg:text-lg
+
+                  hover:border-champagne
+                  hover:text-champagne
+                "
+              >
+                View Full Gallery
                 <GoArrowUpRight
-                  size={16}
+                  size={18}
                   className="
                     transition-transform
-                    duration-500
+                    duration-300
                     group-hover:rotate-45
-                    sm:size-[17px]
                   "
                 />
-              </span>
-            </Link>
+              </Link>
+            </div>
           </motion.div>
 
           {/* =====================================================
@@ -211,6 +382,72 @@ export default function VillaIntro() {
             }}
             className="relative order-1 lg:order-2"
           >
+            {/* =================================================
+                BACKGROUND DROP GRADIENT
+
+                Champagne glow behind the frame, matching
+                the accent token used across Hero/Navbar.
+            ================================================= */}
+
+            <div
+              aria-hidden="true"
+              className="
+                pointer-events-none
+                absolute
+                -inset-4
+                -z-10
+
+                rounded-[2rem]
+                bg-linear-to-br
+                from-champagne/35
+                via-champagne/10
+                to-transparent
+
+                blur-2xl
+
+                sm:-inset-6
+                sm:rounded-[2.5rem]
+
+                md:-inset-8
+
+                lg:-inset-10
+                lg:blur-3xl
+
+                xl:-inset-12
+              "
+            />
+
+            <div
+              aria-hidden="true"
+              className="
+                pointer-events-none
+                absolute
+                -bottom-6
+                -right-6
+                -z-10
+                h-40
+                w-40
+
+                rounded-full
+                bg-linear-to-tl
+                from-midnight/25
+                to-transparent
+
+                blur-3xl
+
+                sm:-bottom-8
+                sm:-right-8
+                sm:h-52
+                sm:w-52
+
+                lg:h-64
+                lg:w-64
+
+                xl:h-72
+                xl:w-72
+              "
+            />
+
             {/* Image frame */}
 
             <div
@@ -220,9 +457,14 @@ export default function VillaIntro() {
                 w-full
                 overflow-hidden
                 rounded-xl
+
                 sm:aspect-[5/4]
                 sm:rounded-2xl
+
                 lg:aspect-[5/4]
+                lg:rounded-[1.75rem]
+
+                xl:rounded-[2rem]
               "
             >
               <Image
@@ -244,9 +486,28 @@ export default function VillaIntro() {
                 "
               />
 
-              {/* Image overlay */}
+              {/* =============================================
+                  IMAGE OVERLAY — bold bottom fade
 
-              <div className="absolute inset-0 bg-gradient-to-t from-midnight/45 via-midnight/5 to-transparent" />
+                  Same ratio as Hero's own bottom fade so the
+                  dark treatment feels consistent site-wide.
+              ============================================= */}
+
+              <div className="absolute inset-0 bg-midnight/10" />
+
+              <div
+                className="
+                  absolute
+                  inset-x-0
+                  bottom-0
+                  h-[60%]
+
+                  bg-linear-to-t
+                  from-midnight/90
+                  via-midnight/45
+                  to-transparent
+                "
+              />
 
               {/* Image label */}
 
@@ -260,9 +521,11 @@ export default function VillaIntro() {
                   items-end
                   justify-between
                   gap-4
+
                   sm:bottom-6
                   sm:left-6
                   sm:right-6
+
                   md:bottom-8
                   md:left-8
                   md:right-8
@@ -275,7 +538,8 @@ export default function VillaIntro() {
                       font-medium
                       uppercase
                       tracking-[0.2em]
-                      text-midnight
+                      text-champagne
+
                       sm:text-[9px]
                       sm:tracking-[0.22em]
                     "
@@ -288,11 +552,16 @@ export default function VillaIntro() {
                       mt-1
                       truncate
                       font-display
-                      text-xl
                       leading-none
                       text-white
+
+                      text-xl
+
                       sm:text-2xl
+
                       md:text-3xl
+
+                      xl:text-4xl
                     "
                   >
                     Paradise Island
@@ -312,17 +581,27 @@ export default function VillaIntro() {
                     rounded-full
                     bg-white
                     text-midnight
+
                     transition-all
                     duration-500
                     hover:rotate-45
-                    hover:bg-[#B68A52]
+                    hover:bg-champagne
+
                     sm:h-11
                     sm:w-11
+
+                    xl:h-12
+                    xl:w-12
                   "
                 >
                   <GoArrowUpRight size={17} className="sm:hidden" />
 
-                  <GoArrowUpRight size={19} className="hidden sm:block" />
+                  <GoArrowUpRight
+                    size={19}
+                    className="hidden sm:block xl:hidden"
+                  />
+
+                  <GoArrowUpRight size={20} className="hidden xl:block" />
                 </Link>
               </div>
             </div>

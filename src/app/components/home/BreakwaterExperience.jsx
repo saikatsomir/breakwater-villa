@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 const experiences = [
   {
     number: '01',
-    title: 'Oceanfront Living',
+    title: 'Ocean View Living',
     description:
       'Wake to open water, slow mornings by the pool, and Caribbean sunsets just beyond your door.',
     image: '/images/home/breakwater-hero.jpg',
@@ -30,7 +30,7 @@ const experiences = [
     number: '03',
     title: 'Island at Your Doorstep',
     description:
-      'Enjoy the beaches, golf, dining, and experiences of Paradise Island from an exclusive oceanfront setting.',
+      'Enjoy the beaches, golf, dining, and experiences of Paradise Island from an exclusive Ocean View setting.',
     image: '/images/home/couch.jpg',
     href: '/amenities',
   },
@@ -279,7 +279,7 @@ export default function BreakwaterExperience() {
                 lg:text-[11px]
               "
             >
-              The Breakwater Experience
+              The 32 Ocean Experience
             </span>
           </div>
 

@@ -6,15 +6,15 @@ import Button from '../ui/SiteButton';
 const faqs = [
   {
     number: '01',
-    question: 'What is Breakwater Villa like?',
+    question: 'What is 32 ocean like?',
     answer:
-      'Breakwater Villa is an exclusive Caribbean residence designed around tranquility, luxury, and natural beauty. The spacious interiors create a calm atmosphere, while views of lush greenery and beautiful sunsets bring the surrounding island into everyday life. Guests enjoy a private retreat with privileged access to the surrounding area and its world-class amenities.',
+      '32 ocean is an exclusive Caribbean residence designed around tranquility, luxury, and natural beauty. The spacious interiors create a calm atmosphere, while views of lush greenery and beautiful sunsets bring the surrounding island into everyday life. Guests enjoy a private retreat with privileged access to the surrounding area and its world-class amenities.',
   },
   {
     number: '02',
     question: 'How many guests can the villa accommodate?',
     answer:
-      'The residence features 6 bedrooms, 6 bathrooms, and approximately 6,500 square feet of living space. With six bedrooms accommodating two guests each, Breakwater Villa can comfortably host up to 12 guests.',
+      'The residence features 6 bedrooms, 6 bathrooms, and approximately 6,500 square feet of living space. With six bedrooms accommodating two guests each, 32 ocean can comfortably host up to 10 guests.',
   },
   {
     number: '03',
@@ -32,7 +32,7 @@ const faqs = [
     number: '05',
     question: 'What amenities and experiences are available?',
     answer:
-      'General amenities include air conditioning, Wi-Fi, housekeeping, a private pool, a gated community setting, an office, and a theatre room. The villa is approximately a two-minute walk from a private beach and a two-minute golf cart ride from the Private Beach Club. Guests can also enjoy easy access to Atlantis, including its thrilling slides and captivating aquariums.',
+      'General amenities include air conditioning, Wi-Fi, housekeeping, a private pool, a gated community setting, an office, and a theatre room. The villa is approximately a two-minute walk from a private beach and a two-minute paid golf cart ride from the Private Beach Club. Guests can also enjoy easy access to Atlantis, including its thrilling slides and captivating aquariums.',
   },
 ];
 function FAQItem({ faq, isOpen, onToggle }) {
@@ -160,8 +160,7 @@ export default function FAQ() {
             {/* ================================================= SUBTITLE ================================================= */}{' '}
             <p className=" mt-6 max-w-lg text-sm leading-6 text-slate-muted sm:mt-7 sm:text-base sm:leading-7 md:text-lg md:leading-8 xl:max-w-md xl:text-xl xl:leading-8.5 ">
               {' '}
-              Discover everything you need to know before your stay at
-              Breakwater Villa.{' '}
+              Discover everything you need to know before your stay at 32 ocean.{' '}
             </p>{' '}
             {/* ================================================= BUTTON ================================================= */}{' '}
             <div className=" mt-6 sm:mt-8 xl:mt-9 ">

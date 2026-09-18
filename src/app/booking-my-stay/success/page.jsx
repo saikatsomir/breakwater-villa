@@ -78,8 +78,8 @@ export default function BookingSuccessPage() {
               sm:leading-8
             "
           >
-            We've received your reservation inquiry for Breakwater Villa. Our
-            team will review your request and get back to you shortly.
+            We've received your reservation inquiry for 32 ocean. Our team will
+            review your request and get back to you shortly.
           </p>
 
           {/* =================================================
@@ -114,7 +114,7 @@ export default function BookingSuccessPage() {
 
                 <p className="mt-1.5 text-sm leading-6 text-slate-muted">
                   Your selected dates and contact information have been sent to
-                  the Breakwater Villa team.
+                  the 32 ocean team.
                 </p>
               </div>
             </div>
@@ -208,8 +208,7 @@ export default function BookingSuccessPage() {
           ================================================= */}
 
           <p className="mx-auto mt-8 max-w-lg text-[11px] leading-5 text-slate-muted">
-            Thank you for considering Breakwater Villa for your stay on Paradise
-            Island.
+            Thank you for considering 32 ocean for your stay on Paradise Island.
           </p>
         </div>
       </section>

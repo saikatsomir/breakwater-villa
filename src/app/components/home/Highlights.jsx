@@ -10,7 +10,7 @@ const highlights = [
   {
     icon: FiMapPin,
     title: 'Prime Location',
-    description: 'Ocean Club Estates',
+    description: ' Paradise Island',
   },
   {
     icon: FiSun,

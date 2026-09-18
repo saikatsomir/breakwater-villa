@@ -95,15 +95,15 @@ export async function POST(request, { params }) {
       '../../../../../lib/email'
     ).then(({ resend }) =>
       resend.emails.send({
-        from: 'Breakwater Villa <onboarding@resend.dev>',
+        from: '32 ocean <onboarding@resend.dev>',
         to: [cancelledBooking.email],
-        subject: 'Update Regarding Your Breakwater Villa Inquiry',
+        subject: 'Update Regarding Your 32 ocean Inquiry',
         html: `
             <div style="font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; color: #222;">
 
               <div style="padding: 32px 0;">
                 <h1 style="margin: 0 0 8px; font-size: 28px;">
-                  Breakwater Villa
+                  32 ocean
                 </h1>
 
                 <p style="margin: 0; color: #666; font-size: 15px;">
@@ -123,7 +123,7 @@ export async function POST(request, { params }) {
 
                 <p style="line-height: 1.7; color: #555;">
                   We wanted to let you know that your reservation inquiry
-                  for Breakwater Villa has been cancelled and the requested
+                  for 32 ocean has been cancelled and the requested
                   dates are currently available again.
                 </p>
 

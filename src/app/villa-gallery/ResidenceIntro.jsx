@@ -31,9 +31,9 @@ export default function ResidenceIntro() {
 
           {/* Intro */}
           <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-slate-muted sm:mt-6 sm:text-base sm:leading-8">
-            Every space at Breakwater Villa is designed to make island living
-            feel effortless — from open interiors and sun-filled terraces to
-            quiet corners made for slowing down.
+            Every space at 32 ocean is designed to make island living feel
+            effortless — from open interiors and sun-filled terraces to quiet
+            corners made for slowing down.
           </p>
         </div>
 
@@ -42,8 +42,8 @@ export default function ResidenceIntro() {
           {/* Large Exterior */}
           <div className="group relative min-h-[420px] overflow-hidden rounded-2xl sm:min-h-[520px] lg:row-span-2 lg:min-h-[700px]">
             <Image
-              src="/images/home/villa-intro.jpg"
-              alt="Exterior of Breakwater Villa in Ocean Club Estates, Paradise Island, Bahamas"
+              src="/images/home/highlights.jpg"
+              alt="Exterior of 32 ocean in  Paradise Island, Bahamas"
               fill
               sizes="(max-width: 1023px) 100vw, 65vw"
               className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.025]"
@@ -61,7 +61,7 @@ export default function ResidenceIntro() {
           <div className="group relative min-h-[300px] overflow-hidden rounded-2xl sm:min-h-[340px] lg:min-h-0">
             <Image
               src="/images/home/couch.jpg"
-              alt="Elegant interior lounge at Breakwater Villa in Paradise Island, Bahamas"
+              alt="Elegant interior lounge at 32 ocean in Paradise Island, Bahamas"
               fill
               sizes="(max-width: 1023px) 100vw, 35vw"
               className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.025]"
@@ -79,7 +79,7 @@ export default function ResidenceIntro() {
           <div className="group relative min-h-[300px] overflow-hidden rounded-2xl sm:min-h-[340px] lg:min-h-0">
             <Image
               src="/images/home/big-terrace.jpg"
-              alt="Spacious terrace at Breakwater Villa overlooking the Bahamas"
+              alt="Spacious terrace at 32 ocean overlooking the Bahamas"
               fill
               sizes="(max-width: 1023px) 100vw, 35vw"
               className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.025]"

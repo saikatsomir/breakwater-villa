@@ -154,8 +154,8 @@ export default function FinalBookingCTA() {
 
           <div ref={imageRef} className="absolute inset-[-4%] opacity-0">
             <img
-              src="/images/home/front-side.jpg"
-              alt="Breakwater Villa luxury oceanfront vacation rental in Paradise Island, Bahamas"
+              src="/images/home/highlights.jpg"
+              alt="32 ocean luxury Ocean View vacation rental in Paradise Island, Bahamas"
               className="h-full w-full object-cover"
             />
           </div>
@@ -340,7 +340,7 @@ export default function FinalBookingCTA() {
                 "
               >
                 Come experience the quiet luxury, privacy, and natural beauty of
-                Breakwater Villa on Paradise Island.
+                32 ocean on Paradise Island.
               </p>
 
               {/* Button */}

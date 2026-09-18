@@ -57,7 +57,7 @@ export default function AvailabilityBanner() {
 
             {/* Description */}
             <p className="mt-7 max-w-xl text-sm leading-6.5 text-white/65 sm:mt-8 sm:text-base sm:leading-7 md:text-lg md:leading-8">
-              Discover the perfect time to experience Breakwater Villa. Explore
+              Discover the perfect time to experience 32 ocean. Explore
               available dates and begin planning your private island escape in
               Paradise Island, The Bahamas.
             </p>
@@ -71,7 +71,7 @@ export default function AvailabilityBanner() {
               />
 
               <span className="text-[10px] font-medium uppercase tracking-[0.18em] sm:text-[11px]">
-                Ocean Club Estates · Paradise Island
+                Ocean View Villa on Paradise Island · Paradise Island
               </span>
             </div>
           </motion.div>
@@ -90,7 +90,7 @@ export default function AvailabilityBanner() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl sm:aspect-[5/6] lg:aspect-[4/5]">
               <Image
                 src="/images/home/terrace.jpg"
-                alt="Terrace at Breakwater Villa"
+                alt="Terrace at 32 ocean"
                 fill
                 className="object-cover transition-transform duration-[1400ms] ease-out hover:scale-[1.03]"
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 45vw, 500px"
@@ -103,7 +103,7 @@ export default function AvailabilityBanner() {
               <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between sm:bottom-7 sm:left-7 sm:right-7">
                 <div>
                   <p className="text-[8px] font-semibold uppercase tracking-[0.22em] text-champagne sm:text-[9px]">
-                    Breakwater Villa
+                    32 ocean
                   </p>
 
                   <p className="mt-1 font-display text-xl leading-none text-white sm:text-2xl">

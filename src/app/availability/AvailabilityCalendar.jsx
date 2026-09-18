@@ -48,8 +48,7 @@ export default function AvailabilityCalendar() {
             {/* Description */}
             <p className="mt-7 max-w-lg text-sm leading-6.5 text-slate-muted sm:mt-8 sm:text-base sm:leading-7 md:text-lg md:leading-8">
               Select your arrival and departure dates to explore availability at
-              Breakwater Villa and begin planning your private stay in Paradise
-              Island.
+              32 ocean and begin planning your private stay in Paradise Island.
             </p>
 
             {/* Property Details */}
@@ -76,7 +75,7 @@ export default function AvailabilityCalendar() {
 
               <div className="pl-3 sm:pl-5">
                 <p className="font-display text-3xl leading-none text-midnight sm:text-4xl">
-                  12
+                  10
                 </p>
 
                 <p className="mt-2 text-[8px] font-semibold uppercase tracking-[0.16em] text-slate-muted sm:text-[9px]">
@@ -177,7 +176,7 @@ export default function AvailabilityCalendar() {
                   {hasDates
                     ? `${selectedNights} ${
                         selectedNights === 1 ? 'night' : 'nights'
-                      } at Breakwater Villa`
+                      } at 32 ocean`
                     : 'Select your arrival and departure dates'}
                 </p>
               </div>

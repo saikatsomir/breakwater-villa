@@ -70,10 +70,10 @@ export default function ConfirmBookingPage({ params }) {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#f7f5f0] flex items-center justify-center px-6">
+      <main className="min-h-screen bg-[#f7f5f0] flex items-center justify-center  px-6">
         <div className="text-center">
           <p className="text-sm tracking-[0.18em] uppercase text-neutral-500">
-            Breakwater Villa
+            32 ocean
           </p>
 
           <p className="mt-4 text-lg text-neutral-800">
@@ -89,7 +89,7 @@ export default function ConfirmBookingPage({ params }) {
       <main className="min-h-screen bg-[#f7f5f0] flex items-center justify-center px-6">
         <div className="w-full max-w-xl rounded-2xl bg-white p-8 md:p-12 text-center shadow-sm">
           <p className="text-sm tracking-[0.18em] uppercase text-neutral-500">
-            Breakwater Villa
+            32 ocean
           </p>
 
           <h1 className="mt-6 text-3xl font-light text-neutral-900">
@@ -103,12 +103,12 @@ export default function ConfirmBookingPage({ params }) {
   }
 
   return (
-    <main className="min-h-screen bg-[#f7f5f0] px-6 py-16 md:px-10 md:py-24">
+    <main className="min-h-screen bg-[#f7f5f0] px-6 mt-20 sm:mt-40 py-16 md:px-10 md:py-24">
       <div className="mx-auto w-full max-w-2xl">
         <div className="rounded-2xl bg-white p-8 shadow-sm md:p-12">
           <div className="text-center">
             <p className="text-sm tracking-[0.18em] uppercase text-neutral-500">
-              Breakwater Villa
+              32 ocean
             </p>
 
             {success ? (

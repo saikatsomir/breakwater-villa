@@ -30,7 +30,7 @@ export default function ContactHero() {
       <div className="absolute inset-0">
         <Image
           src="/images/home/outside.jpg"
-          alt="Breakwater Villa in Paradise Island, Bahamas"
+          alt="32 ocean in Paradise Island, Bahamas"
           fill
           priority
           sizes="100vw"
@@ -97,7 +97,7 @@ export default function ContactHero() {
               <span className="h-1.5 w-1.5 rounded-full bg-champagne sm:h-2 sm:w-2" />
 
               <span className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/65 sm:text-[10px] lg:text-[11px]">
-                Contact Breakwater Villa
+                Contact 32 ocean
               </span>
             </div>
 
@@ -129,9 +129,9 @@ export default function ContactHero() {
                 xl:text-xl xl:leading-8.5
               "
             >
-              Have a question about Breakwater Villa, our amenities, or the
-              surrounding area? Get in touch with our team and we’ll be happy to
-              help you plan your time in Paradise Island, The Bahamas.
+              Have a question about 32 ocean, our amenities, or the surrounding
+              area? Get in touch with our team and we’ll be happy to help you
+              plan your time in Paradise Island, The Bahamas.
             </p>
 
             {/* Contact Actions */}
@@ -222,7 +222,7 @@ export default function ContactHero() {
             >
               <div className="relative aspect-[5/3] overflow-hidden rounded-lg bg-midnight sm:rounded-xl">
                 <iframe
-                  title="Breakwater Villa location in Ocean Club Estates, Paradise Island, Bahamas"
+                  title="32 ocean location in  Paradise Island"
                   src="https://www.google.com/maps?q=Ocean%20Club%20Estates%2C%20Paradise%20Island%2C%20The%20Bahamas&output=embed"
                   className="absolute inset-0 h-full w-full border-0"
                   loading="lazy"

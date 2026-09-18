@@ -617,7 +617,7 @@ export default function BookingDates() {
 
               <p className="mt-4 max-w-xl text-sm leading-6 text-slate-muted sm:text-base sm:leading-7">
                 Choose your preferred check-in and check-out dates to begin
-                planning your stay at Breakwater Villa.
+                planning your stay at 32 ocean.
               </p>
             </div>
 
@@ -866,7 +866,7 @@ export default function BookingDates() {
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src="/images/home/couch.jpg"
-                  alt="Interior lounge at Breakwater Villa in Ocean Club Estates, Paradise Island, Bahamas"
+                  alt="Interior lounge at 32 ocean in Ocean View Villa on Paradise Island, Paradise Island, Bahamas"
                   fill
                   sizes="
                     (max-width: 1024px) 100vw,
@@ -888,11 +888,11 @@ export default function BookingDates() {
                 </p>
 
                 <h2 className="mt-2 font-display text-3xl font-normal tracking-[-0.025em] text-midnight sm:text-4xl">
-                  Breakwater Villa
+                  32 ocean
                 </h2>
 
                 <p className="mt-2 text-sm leading-6 text-slate-muted">
-                  Ocean Club Estates · Paradise Island, The Bahamas
+                  Ocean View Villa on Paradise Island
                 </p>
 
                 {/* Insights */}

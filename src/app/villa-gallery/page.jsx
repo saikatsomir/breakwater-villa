@@ -4,15 +4,14 @@ import GalleryMarquee from './GalleryMarquee';
 import FinalBookingCTA from '../components/home/FinalBookingCTA';
 
 export const metadata = {
-  title: 'The Villa & Gallery | Breakwater Villa | Paradise Island, Bahamas',
+  title: 'The Villa & Gallery | 32 ocean | Paradise Island, Bahamas',
   description:
-    'Explore Breakwater Villa, a private 6-bedroom luxury villa in Ocean Club Estates on Paradise Island, Bahamas. Discover the villa interiors, outdoor spaces, amenities, and photo gallery.',
+    'Explore 32 ocean, a private 6-bedroom luxury villa  on Paradise Island, Bahamas. Discover the villa interiors, outdoor spaces, amenities, and photo gallery.',
   keywords: [
-    'Breakwater Villa',
-    'Breakwater Villa Paradise Island',
+    '32 ocean',
+    '32 ocean Paradise Island',
     'Paradise Island luxury villa',
     'Bahamas luxury villa rental',
-    'Ocean Club Estates villa',
     'Paradise Island vacation rental',
     '6 bedroom villa Bahamas',
     'luxury villa Paradise Island',
@@ -21,26 +20,26 @@ export const metadata = {
     canonical: '/villa-gallery',
   },
   openGraph: {
-    title: 'The Villa & Gallery | Breakwater Villa | Paradise Island, Bahamas',
+    title: 'The Villa & Gallery | 32 ocean | Paradise Island, Bahamas',
     description:
-      'Step inside Breakwater Villa, a private 6-bedroom luxury residence in Ocean Club Estates, Paradise Island. Explore the interiors, outdoor spaces, and villa gallery.',
+      'Step inside 32 ocean, a private 6-bedroom luxury residence in  Paradise Island. Explore the interiors, outdoor spaces, and villa gallery.',
     url: '/villa-gallery',
-    siteName: 'Breakwater Villa',
+    siteName: '32 ocean',
     type: 'website',
     images: [
       {
         url: '/images/home/villa-intro.jpg',
         width: 1200,
         height: 800,
-        alt: 'Breakwater Villa in Paradise Island, Bahamas',
+        alt: '32 ocean in Paradise Island, Bahamas',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Villa & Gallery | Breakwater Villa',
+    title: 'The Villa & Gallery | 32 ocean',
     description:
-      'Explore the spaces and details of Breakwater Villa in Paradise Island, Bahamas.',
+      'Explore the spaces and details of 32 ocean in Paradise Island, Bahamas.',
     images: ['/images/home/villa-intro.jpg'],
   },
   robots: {

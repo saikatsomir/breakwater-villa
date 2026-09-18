@@ -24,7 +24,7 @@ export async function POST(request) {
     }
 
     const emailResult = await resend.emails.send({
-      from: 'Breakwater Villa <onboarding@resend.dev>',
+      from: '32 ocean <onboarding@resend.dev>',
       to: [OWNER_EMAIL],
       replyTo: email,
       subject: `New Contact Form: ${subject}`,
@@ -89,7 +89,7 @@ export async function POST(request) {
           />
 
           <p style="font-size: 12px; color: #667085;">
-            Sent from the Breakwater Villa website contact form.
+            Sent from the 32 ocean website contact form.
           </p>
         </div>
       `,

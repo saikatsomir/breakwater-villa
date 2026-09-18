@@ -139,7 +139,7 @@ export async function POST(request) {
 
     // Send booking notification to the owner
     const { data: emailData, error: emailError } = await resend.emails.send({
-      from: 'Breakwater Villa <onboarding@resend.dev>',
+      from: '32 ocean <onboarding@resend.dev>',
       to: [OWNER_EMAIL],
       replyTo: email.trim().toLowerCase(),
       subject: `New Booking Inquiry — ${firstName.trim()} ${lastName.trim()}`,
@@ -148,7 +148,7 @@ export async function POST(request) {
 
             <div style="padding: 32px 0;">
               <h1 style="margin: 0 0 8px; font-size: 28px;">
-                Breakwater Villa
+                32 ocean
               </h1>
 
               <p style="margin: 0; color: #666; font-size: 15px;">

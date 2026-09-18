@@ -242,11 +242,11 @@ export default function Navbar() {
           <Link
             href="/"
             className="flex shrink-0 items-center"
-            aria-label="Breakwater Villa home"
+            aria-label="32 ocean home"
           >
             <Image
               src="/logo.png"
-              alt="Breakwater Villa"
+              alt="32 ocean"
               width={140}
               height={40}
               priority
@@ -346,7 +346,7 @@ export default function Navbar() {
 
             <a
               href="tel:+12425555555"
-              aria-label="Call Breakwater Villa"
+              aria-label="Call 32 ocean"
               className="
                 flex
                 h-10

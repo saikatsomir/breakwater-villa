@@ -51,7 +51,7 @@ const guests = [
   '/images/guests/guest-3.webp',
 ];
 
-const keyPoints = ['Golf Course', 'Sunset Views', 'Walk to the Beach'];
+const keyPoints = ['Paid Golf Course', 'Sunset Views', 'Walk to the Beach'];
 
 const MAX_GUESTS = 10;
 
@@ -524,7 +524,7 @@ export default function Hero() {
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src="/images/home/breakwater-hero.jpg"
-            alt="Breakwater Villa overlooking the ocean"
+            alt="32 ocean overlooking the ocean"
             fill
             priority
             sizes="100vw"
@@ -891,7 +891,7 @@ export default function Hero() {
                   <br />
 
                   <span className="italic text-champagne">
-                    Oceanfront Villa
+                    Ocean View Villa
                   </span>
 
                   <br />
@@ -938,7 +938,7 @@ export default function Hero() {
                   "
                 >
                   <span className="italic text-champagne">
-                    Oceanfront Villa
+                    Ocean View Villa
                   </span>
 
                   <br />
@@ -999,9 +999,9 @@ export default function Hero() {
                     2xl:leading-9
                   "
                 >
-                  Six bedrooms of oceanfront luxury, a private infinity pool,
+                  Six bedrooms of Ocean View luxury, a private infinity pool,
                   and effortless access to Paradise Island — all within the
-                  exclusive Ocean Club Estates.
+                  exclusive Paradise Island.
                 </motion.p>
 
                 {/* =================================================

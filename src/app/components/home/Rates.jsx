@@ -262,7 +262,7 @@ export default function Rates() {
               "
             >
               Explore our seasonal nightly rates and find the perfect time for
-              your stay at Breakwater Villa.
+              your stay at 32 ocean.
             </p>
 
             <div
@@ -340,7 +340,7 @@ export default function Rates() {
           >
             <Image
               src="/images/home/terrace.jpg"
-              alt="Oceanfront terrace at Breakwater Villa in Paradise Island, Bahamas"
+              alt="Ocean View terrace at 32 ocean in Paradise Island, Bahamas"
               fill
               className="
                 object-cover
@@ -401,7 +401,7 @@ export default function Rates() {
                   sm:tracking-[0.24em]
                 "
               >
-                Breakwater Villa
+                32 ocean
               </p>
 
               <p

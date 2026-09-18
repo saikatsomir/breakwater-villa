@@ -775,7 +775,7 @@ export default function BookingDetailsPage() {
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src="/images/home/couch.jpg"
-                    alt="Elegant interior lounge at Breakwater Villa in Paradise Island, Bahamas"
+                    alt="Elegant interior lounge at 32 ocean in Paradise Island, Bahamas"
                     className="
                       h-full
                       w-full
@@ -789,7 +789,7 @@ export default function BookingDetailsPage() {
 
                 <div className="p-6 sm:p-7 md:p-8">
                   <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#B68A52]">
-                    Breakwater Villa
+                    32 ocean
                   </p>
 
                   <h2 className="mt-2 font-display text-3xl font-normal tracking-[-0.025em] text-midnight sm:text-4xl">
@@ -803,9 +803,9 @@ export default function BookingDetailsPage() {
                     />
 
                     <span>
-                      Ocean Club Estates
+                      Ocean View Villa
                       <br />
-                      Paradise Island, The Bahamas
+                      on Paradise Island
                     </span>
                   </div>
 

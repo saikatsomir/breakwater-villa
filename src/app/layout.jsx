@@ -21,8 +21,9 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata = {
-  title: 'Breakwater Villa | Paradise Island, Bahamas',
-  description: 'Luxury 6-bedroom villa rental in Ocean Club Estates.',
+  title: '32 ocean | Paradise Island, Bahamas',
+  description:
+    'Luxury 6-bedroom villa rental in Ocean View Villa on Paradise Island.',
 };
 
 export default function RootLayout({ children }) {

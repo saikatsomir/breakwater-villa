@@ -120,15 +120,15 @@ export async function POST(request, { params }) {
 
     // Notify the guest that their reservation is confirmed.
     const { data: emailData, error: emailError } = await resend.emails.send({
-      from: 'Breakwater Villa <onboarding@resend.dev>',
+      from: '32 ocean <onboarding@resend.dev>',
       to: [confirmedBooking.email],
-      subject: 'Your Breakwater Villa Reservation is Confirmed',
+      subject: 'Your 32 ocean Reservation is Confirmed',
       html: `
           <div style="font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; color: #222;">
 
             <div style="padding: 32px 0;">
               <h1 style="margin: 0 0 8px; font-size: 28px;">
-                Breakwater Villa
+                32 ocean
               </h1>
 
               <p style="margin: 0; color: #666; font-size: 15px;">
@@ -147,7 +147,7 @@ export async function POST(request, { params }) {
               </p>
 
               <p style="line-height: 1.7; color: #555;">
-                We're pleased to confirm your reservation at Breakwater Villa.
+                We're pleased to confirm your reservation at 32 ocean.
                 We look forward to welcoming you to Paradise Island.
               </p>
 

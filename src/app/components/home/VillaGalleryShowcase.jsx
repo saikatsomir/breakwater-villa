@@ -21,7 +21,7 @@ const galleryItems = [
   },
   {
     number: '02',
-    title: 'Oceanfront Pool',
+    title: 'Ocean View Pool',
     category: 'Outdoor Living',
     description: 'A private infinity pool overlooking the Caribbean.',
     image: '/images/home/highlights.jpg',
@@ -42,7 +42,7 @@ const galleryItems = [
   },
   {
     number: '05',
-    title: 'Oceanfront Terrace',
+    title: 'Ocean View Terrace',
     category: 'Outdoor Living',
     description: 'Open-air spaces made for slow mornings and sunsets.',
     image: '/images/home/terrace.jpg',
@@ -581,8 +581,8 @@ export default function VillaGalleryShowcase() {
                 2xl:text-xl
               "
             >
-              Explore the spaces, views, and details that make your stay at
-              Breakwater Villa truly exceptional.
+              Explore the spaces, views, and details that make your stay at 32
+              ocean truly exceptional.
             </p>
 
             {/* Desktop Controls */}

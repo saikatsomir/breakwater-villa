@@ -45,7 +45,7 @@ export default function BookingHero() {
       <div className="absolute inset-0">
         <Image
           src="/images/home/villa-intro.jpg"
-          alt="Breakwater Villa luxury vacation rental in Ocean Club Estates, Paradise Island, Bahamas"
+          alt="32 ocean luxury vacation rental in Ocean View Villa on Paradise Island"
           fill
           priority
           sizes="100vw"
@@ -159,8 +159,8 @@ export default function BookingHero() {
                 xl:leading-8.5
               "
             >
-              Reserve your stay at Breakwater Villa and experience effortless
-              island living in Ocean Club Estates, Paradise Island, The Bahamas.
+              Reserve your stay at 32 ocean and experience effortless island
+              living in Ocean View Villa on Paradise Island.
             </p>
           </motion.div>
 
@@ -190,7 +190,7 @@ export default function BookingHero() {
               <span className="h-1.5 w-1.5 rounded-full bg-champagne" />
 
               <span className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/45 sm:text-[10px] sm:tracking-[0.2em]">
-                Ocean Club Estates · Paradise Island
+                Ocean View Villa on Paradise Island
               </span>
             </div>
 

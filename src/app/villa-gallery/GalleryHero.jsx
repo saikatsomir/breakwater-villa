@@ -19,7 +19,7 @@ export default function GalleryHero() {
       <div className="absolute inset-0">
         <Image
           src="/images/home/villa.jpg"
-          alt="Breakwater Villa in Ocean Club Estates, Paradise Island, Bahamas"
+          alt="32 ocean in  Paradise Island"
           fill
           priority
           sizes="100vw"

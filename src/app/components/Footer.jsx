@@ -49,11 +49,11 @@ export default function Footer() {
               <Link
                 href="/"
                 className="flex shrink-0 items-center"
-                aria-label="Breakwater Villa home"
+                aria-label="32 ocean home"
               >
                 <Image
                   src="/logo.png"
-                  alt="Breakwater Villa"
+                  alt="32 ocean"
                   width={140}
                   height={40}
                   priority
@@ -61,7 +61,7 @@ export default function Footer() {
                 />
               </Link>
               <p className=" mt-5 max-w-sm text-sm leading-6 text-white/55 sm:mt-6 sm:text-[15px] sm:leading-7 md:text-base ">
-                A private oceanfront retreat in Ocean Club Estates, created for
+                A private Ocean View retreat in Paradise Island, created for
                 slow mornings, long afternoons, and unforgettable island stays.
               </p>
               {/* ================================================= SOCIAL ================================================= */}
@@ -159,7 +159,8 @@ export default function Footer() {
                     className=" mt-0.5 shrink-0 text-champagne sm:h-[17px] sm:w-[17px] "
                   />
                   <p className=" text-[13px] leading-5 text-white/65 sm:text-sm ">
-                    Ocean Club Estates <br /> Paradise Island <br /> The Bahamas
+                    Ocean View Villa <br /> on Paradise Island{' '}
+                    {/* <br /> The Bahamas */}
                   </p>
                 </div>
                 {/* Email */}
@@ -193,8 +194,7 @@ export default function Footer() {
           <div className=" flex flex-col gap-4  pt-5 sm:gap-5 sm:pt-7 md:flex-row md:items-center md:justify-between lg:gap-6 ">
             {/* Copyright */}
             <p className=" text-[9px] tracking-wide text-white/45 sm:text-[11px] ">
-              © {new Date().getFullYear()} Breakwater Villa. All rights
-              reserved.
+              © {new Date().getFullYear()} 32 ocean. All rights reserved.
             </p>
             {/* Legal */}
             <div className=" flex items-center gap-4 sm:gap-5 ">
@@ -220,7 +220,7 @@ export default function Footer() {
         {/* ===================================================== LARGE BACKGROUND WORD ===================================================== */}
         <div className=" pointer-events-none absolute bottom-[-18px] left-1/2 -z-0 hidden -translate-x-1/2 select-none whitespace-nowrap lg:block ">
           <span className=" font-display text-[140px] font-medium leading-none text-white/[0.035] xl:text-[190px] 2xl:text-[220px] ">
-            BREAKWATER
+            32 ocean
           </span>
         </div>
       </div>

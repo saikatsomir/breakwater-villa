@@ -6,87 +6,87 @@ import gsap from 'gsap';
 const images = [
   {
     src: '/images/home/villa.jpg',
-    alt: 'Breakwater Villa exterior in Paradise Island, Bahamas',
+    alt: '32 ocean exterior in Paradise Island, Bahamas',
   },
   {
     src: '/images/home/villa-intro.jpg',
-    alt: 'Breakwater Villa exterior and surrounding grounds',
+    alt: '32 ocean exterior and surrounding grounds',
   },
   {
     src: '/images/home/outside.jpg',
-    alt: 'Outdoor area at Breakwater Villa',
+    alt: 'Outdoor area at 32 ocean',
   },
   {
     src: '/images/home/big-terrace.jpg',
-    alt: 'Large private terrace at Breakwater Villa',
+    alt: 'Large private terrace at 32 ocean',
   },
   {
     src: '/images/home/terrace.jpg',
-    alt: 'Terrace at Breakwater Villa',
+    alt: 'Terrace at 32 ocean',
   },
   {
     src: '/images/home/front-side.jpg',
-    alt: 'Front side exterior of Breakwater Villa',
+    alt: 'Front side exterior of 32 ocean',
   },
   {
     src: '/images/home/couch.jpg',
-    alt: 'Elegant living area at Breakwater Villa',
+    alt: 'Elegant living area at 32 ocean',
   },
   {
     src: '/images/home/living-room.jpg',
-    alt: 'Living room at Breakwater Villa',
+    alt: 'Living room at 32 ocean',
   },
   {
     src: '/images/home/drawing-room.jpg',
-    alt: 'Drawing room at Breakwater Villa',
+    alt: 'Drawing room at 32 ocean',
   },
   {
     src: '/images/home/drawing-room-2.jpg',
-    alt: 'Drawing room interior at Breakwater Villa',
+    alt: 'Drawing room interior at 32 ocean',
   },
   {
     src: '/images/home/dining.jpg',
-    alt: 'Dining area at Breakwater Villa',
+    alt: 'Dining area at 32 ocean',
   },
   {
     src: '/images/home/kitchen.jpg',
-    alt: 'Kitchen at Breakwater Villa',
+    alt: 'Kitchen at 32 ocean',
   },
   {
     src: '/images/home/guest-bedroom.jpg',
-    alt: 'Guest bedroom at Breakwater Villa',
+    alt: 'Guest bedroom at 32 ocean',
   },
   {
     src: '/images/home/bed-2.jpg',
-    alt: 'Bedroom at Breakwater Villa',
+    alt: 'Bedroom at 32 ocean',
   },
   {
     src: '/images/home/bed-3.jpg',
-    alt: 'Bedroom interior at Breakwater Villa',
+    alt: 'Bedroom interior at 32 ocean',
   },
   {
     src: '/images/home/bath-1.jpg',
-    alt: 'Bathroom at Breakwater Villa',
+    alt: 'Bathroom at 32 ocean',
   },
   {
     src: '/images/home/bath-2.jpg',
-    alt: 'Luxury bathroom at Breakwater Villa',
+    alt: 'Luxury bathroom at 32 ocean',
   },
   {
     src: '/images/home/bathroom-1.jpg',
-    alt: 'Bathroom interior at Breakwater Villa',
+    alt: 'Bathroom interior at 32 ocean',
   },
   {
     src: '/images/home/bathroom-2.jpg',
-    alt: 'Bathroom details at Breakwater Villa',
+    alt: 'Bathroom details at 32 ocean',
   },
   {
     src: '/images/home/highlights.jpg',
-    alt: 'Outdoor highlights at Breakwater Villa',
+    alt: 'Outdoor highlights at 32 ocean',
   },
   {
     src: '/images/home/villa-video-thumbnail.jpg',
-    alt: 'Breakwater Villa video preview',
+    alt: '32 ocean video preview',
   },
 ];
 
@@ -329,7 +329,7 @@ export default function GalleryMarquee() {
               md:text-[11px]
             "
           >
-            Life at Breakwater
+            Life at 32 Ocean
           </p>
 
           <span className="h-px w-8 bg-[#B68A52] sm:w-12" />
@@ -370,7 +370,7 @@ export default function GalleryMarquee() {
           "
         >
           From quiet mornings indoors to long afternoons beneath the island sun,
-          every corner of Breakwater Villa is made for living well.
+          every corner of 32 ocean is made for living well.
         </p>
       </div>
 

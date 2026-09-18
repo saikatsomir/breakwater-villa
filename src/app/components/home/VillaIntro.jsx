@@ -11,7 +11,7 @@ import villa from '../../../../public/images/home/villa.jpg';
 const stats = [
   { value: '6', label: 'Bedrooms' },
   { value: '6', label: 'Bathrooms' },
-  { value: '12', label: 'Guests' },
+  { value: '10', label: 'Guests' },
 ];
 
 export default function VillaIntro() {
@@ -202,13 +202,13 @@ export default function VillaIntro() {
               "
             >
               <p>
-                Welcome to Breakwater Villa — a private oceanfront retreat
-                created for slow mornings, long afternoons by the pool, and
-                evenings spent together overlooking the Caribbean.
+                Welcome to 32 ocean — a private Ocean View retreat created for
+                slow mornings, long afternoons by the pool, and evenings spent
+                together overlooking the Caribbean.
               </p>
 
               <p>
-                Set within the exclusive Ocean Club Estates on Paradise Island,
+                Set within the exclusive Ocean View Villa on Paradise Island,
                 the villa combines generous living spaces, six private bedrooms,
                 and effortless access to the best of The Bahamas.
               </p>
@@ -329,7 +329,7 @@ export default function VillaIntro() {
 
               <Link
                 href="/villa-gallery"
-                aria-label="View the full Breakwater Villa gallery"
+                aria-label="View the full 32 ocean gallery"
                 className="
                   group
                   hidden
@@ -469,7 +469,7 @@ export default function VillaIntro() {
             >
               <Image
                 src={villa.src}
-                alt="Breakwater Villa private oceanfront residence in Ocean Club Estates, Paradise Island, Bahamas"
+                alt="32 ocean private Ocean View residence in Paradise Island"
                 fill
                 priority={false}
                 className="
@@ -544,7 +544,7 @@ export default function VillaIntro() {
                       sm:tracking-[0.22em]
                     "
                   >
-                    Breakwater Villa
+                    32 ocean
                   </p>
 
                   <p
@@ -570,7 +570,7 @@ export default function VillaIntro() {
 
                 <Link
                   href="/villa-gallery"
-                  aria-label="View Breakwater Villa gallery"
+                  aria-label="View 32 ocean gallery"
                   className="
                     flex
                     h-10

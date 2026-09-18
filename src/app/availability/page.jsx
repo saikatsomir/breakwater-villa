@@ -2,8 +2,8 @@ import AvailabilityBanner from './AvailabilityBanner';
 import AvailabilityCalendar from './AvailabilityCalendar';
 
 export const metadata = {
-  title: 'Availability | Breakwater Villa',
-  description: 'Check availability and seasonal rates for Breakwater Villa.',
+  title: 'Availability | 32 ocean',
+  description: 'Check availability and seasonal rates for 32 ocean.',
 };
 
 export default function AvailabilityPage() {
